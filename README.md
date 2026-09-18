@@ -1,57 +1,53 @@
 # PaperOne Plugin
 
-PaperOne 的独立插件仓库：查找论文、管理文献库、获取 PDF，并使用 Nature Skills 精读论文或制作研究卡片。
+[简体中文](README.zh-CN.md)
 
-## 功能
+PaperOne for Codex: search scholarly papers, work with your library, retrieve PDFs, read papers with source anchors, and create evidence-grounded research cards.
 
-| 能力 | 工具 / Skill |
+## Capabilities
+
+| Capability | Tool or skill |
 |---|---|
-| 标题、关键词、DOI、arXiv 检索 | `search_papers` |
-| 已知论文 ID 的 metadata | `get_paper` |
-| 个人及共享文件夹、文献 | `list_folders`、`list_library_papers` |
-| 保存论文到文献库或可写文件夹 | `add_paper_to_library` |
-| PDF metadata 与下载地址 | `get_pdf_download` |
-| 中英文对照精读 | `nature-reader` |
-| 论文卡片、方法与证据分析 | `nature-paper-card` |
+| Search by title, keywords, DOI, or arXiv ID | `search_papers` |
+| Retrieve metadata for a known paper ID | `get_paper` |
+| Browse personal and shared folders or papers | `list_folders`, `list_library_papers` |
+| Save a paper to the library or a writable folder | `add_paper_to_library` |
+| Get PDF metadata and download URLs | `get_pdf_download` |
+| Build a source-grounded bilingual reader | `nature-reader` |
+| Create an evidence-grounded research card | `nature-paper-card` |
 
-## 在 Codex 中添加
+## Install in Codex
 
-使用支持插件的 Codex 版本：
+With a Codex version that supports plugins:
 
 ```sh
 codex plugin marketplace add projectp1/paperone-plugin --ref main
 codex plugin add paperone@projectp1
 ```
 
-安装后在宿主中连接 PaperOne，按授权页面完成登录；在新任务中使用插件。
-GitHub 仓库是主动添加的插件来源，不代表已进入官方公共插件目录。
+Connect PaperOne in the host, complete sign-in and authorization, then start a new task so Codex loads the plugin. A GitHub marketplace source is user-installed and is separate from publication in the universal plugin directory.
 
-**连接状态：** 随包默认 MCP 地址为 `https://app.paperone.ai/mcp`。
-2026-09-18 已验证 test 环境的 DOI、DOI URL 和 arXiv REST 搜索；生产 MCP 和从本仓库安装后的 OAuth 完整流程尚待验证。
-如连接失败，请先确认所用环境已启用 MCP，参见[连接说明](docs/connection.md)。
+The bundled MCP configuration targets `https://app.paperone.ai/mcp`. Production MCP and OAuth still require end-to-end connection validation. The test environment's DOI, DOI URL, and arXiv REST searches were verified on 2026-09-18. See [connection setup](docs/connection.md) for environment details.
 
-## 示例
+## Examples
 
-- 用 PaperOne 查找 DOI `10.1051/0004-6361/202556799`，显示 metadata 和 PDF 是否可用。
-- 查找 arXiv `2508.10985`。
-- 精读这篇论文，生成中英文对照内容并保留来源定位。
-- 为这份 PDF 制作论文卡片，区分作者结论和分析推断。
+- Find DOI `10.1051/0004-6361/202556799` and show its metadata and PDF availability.
+- Find arXiv paper `2508.10985`.
+- Read this paper closely and create a Chinese-English reader with source anchors.
+- Create a Paper Card for this PDF and distinguish author claims from analysis.
 
-更多说明：[插件使用](plugins/paperone/README.md)、[工具说明](plugins/paperone/docs/tools.md)。
-PDF 处理脚本需要 Python 3.10+ 和插件目录中 `requirements.txt` 指定的可选依赖。
+See the [plugin guide](plugins/paperone/README.md) and [tool reference](plugins/paperone/docs/tools.md). PDF preparation scripts require Python 3.10+ and the optional dependencies in the plugin's `requirements.txt`.
 
-## 维护
+## Repository layout
 
 ```text
-.agents/plugins/marketplace.json   仓库插件目录
-plugins/paperone/                  可安装的插件包
-docs/                             连接及迁移说明
+.agents/plugins/marketplace.json   Repository marketplace
+plugins/paperone/                  Installable plugin package
+docs/                              Connection and maintenance notes
 ```
 
-插件源码在本仓库维护；API、MCP 服务、OAuth 和检索索引由 PaperOne 后端维护。
-迁移来源和验证方法见[维护说明](docs/maintenance.md)。
+This repository owns the plugin package. The PaperOne backend owns the API, MCP service, OAuth implementation, and search indexes. See [maintenance notes](docs/maintenance.md) for provenance and validation.
 
-## 版权与许可证
+## Licensing
 
-随包 Nature Skills 保留 Apache-2.0 许可证及来源声明，见[第三方声明](plugins/paperone/THIRD_PARTY_NOTICES.md)。
-本次迁移不改变已有授权；PaperOne 自有文件尚未另行声明开源许可证。
+Bundled Nature Skills retain their Apache-2.0 license and attribution; see [third-party notices](plugins/paperone/THIRD_PARTY_NOTICES.md). PaperOne-owned files do not yet declare a separate open-source license.

@@ -1,21 +1,16 @@
-# 基础工具
+# Core tools
 
-| 工具 | 输入 | 用途 |
+| Tool | Input | Purpose |
 |---|---|---|
-| `search_papers` | `query`、`doi`、`arxiv` 恰好一个；可带 `page`、`pageSize` | 检索论文 metadata |
-| `get_paper` | `corpusId` 或 `paperId`，恰好一个 | 单篇详情 |
-| `list_folders` | `includeShared` | 可见文件夹及 `canAddPapers` 权限提示 |
-| `list_library_papers` | `scope: personal/shared/folder`；folder 需 `folderId` | 分页读取可见文献 |
-| `add_paper_to_library` | `corpusId`，可选 `folderId` | 用户明确要求时保存论文 |
-| `get_pdf_download` | `corpusId` 或 `paperId`，恰好一个 | 最新 PDF metadata 与短期下载地址 |
+| `search_papers` | Exactly one of `query`, `doi`, or `arxiv`; optional `page` and `pageSize` | Search bibliographic metadata |
+| `get_paper` | Exactly one of `corpusId` or `paperId` | Retrieve one paper |
+| `list_folders` | `includeShared` | List visible folders and `canAddPapers` hints |
+| `list_library_papers` | `scope: personal/shared/folder`; folder scope requires `folderId` | Browse visible papers |
+| `add_paper_to_library` | `corpusId`; optional `folderId` | Save a paper when explicitly requested |
+| `get_pdf_download` | Exactly one of `corpusId` or `paperId` | Get current PDF metadata and a short-lived URL |
 
-以所连服务的实际 MCP schema 为准。编号检索只接受编号及分页，不附加关键词筛选或排序。
-DOI 支持裸编号、`doi:` 前缀和 DOI 链接；arXiv 支持裸编号、前缀及 abs/pdf 链接。
-arXiv 版本后缀识别为同篇论文，不保证返回指定版本的 PDF。
+Follow the connected MCP server's live schemas. Identifier searches accept only the identifier and pagination; do not add keyword sorting or filters. DOI input may be a bare value, a `doi:` prefix, or a resolver URL. arXiv input may be a bare value, a prefix, or an abs/pdf URL. A version suffix resolves the paper identity but does not guarantee that PDF version.
 
-返回 metadata 包含实际可用的标题、作者、摘要、年份、`corpusId`、`doi`、`arxiv` 和 `hasReadablePdf`。
-成功且零命中只说明当前索引未收录匹配编号，后端异常不能解释为论文不存在。
+Metadata may include title, authors, abstract, year, `corpusId`, `doi`, `arxiv`, and `hasReadablePdf`. A successful empty search means only that the current index found no match. Do not interpret a backend error as evidence that the paper does not exist.
 
-`hasReadablePdf` 是可读性提示；需要 PDF 时使用 `get_pdf_download` 获取最新 `url`、`expiresAt` 和可用的 `sizeBytes`、`fileHashSha256`。
-下载签名 URL 时不附加 PaperOne Authorization 或 Cookie；只拿到 URL 不算完成文件下载。
-具体操作见 [PaperOne Skill](../skills/paperone-literature/SKILL.md)。
+`hasReadablePdf` is a hint. Use `get_pdf_download` for current `url`, `expiresAt`, and any available `sizeBytes` or `fileHashSha256`. Do not attach PaperOne authorization or cookies to the signed URL. Receiving a URL alone does not complete the download. See the [PaperOne Literature skill](../skills/paperone-literature/SKILL.md) for the full workflow.
