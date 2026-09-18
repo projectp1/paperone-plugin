@@ -1,0 +1,20 @@
+{
+  "name": "projectp1",
+  "interface": {
+    "displayName": "Projectp1"
+  },
+  "plugins": [
+    {
+      "name": "paperone",
+      "source": {
+        "source": "local",
+        "path": "./plugins/paperone"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

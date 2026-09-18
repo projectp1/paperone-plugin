@@ -1,0 +1,2 @@
+# Optional host dependency for bundled Nature Skills PDF preparation/extraction.
+PyMuPDF>=1.24,<2
