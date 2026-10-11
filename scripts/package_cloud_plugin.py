@@ -79,9 +79,11 @@ def _icon() -> bytes:
     return data
 
 
-def build_archive(source: Path, output: Path, target: str, version: str) -> Path:
+def build_archive(source: Path, output: Path, target: str, version: str, *, app_id: str | None = None) -> Path:
     if target not in CLIENTS:
         raise ValueError("target must be private or submission-draft")
+    if app_id is not None and (target != "private" or not app_id.strip() or app_id != app_id.strip()):
+        raise ValueError("a nonempty registered App ID is supported only for private packages")
     _validate_version(version)
     if source.is_symlink():
         raise ValueError("source must not be a symlink")
@@ -119,7 +121,19 @@ def build_archive(source: Path, output: Path, target: str, version: str) -> Path
     }
     resources = _resources(source)
     resources["assets/paperone-mark.png"] = _icon()
-    for name, value in (("plugin.json", manifest), ("mcp.json", mcp)):
+    if app_id is None:
+        configurations = {"plugin.json": manifest, "mcp.json": mcp}
+    else:
+        manifest["extensions"]["com.openai"]["apps"] = "./.app.json"
+        compatibility = {**metadata, "name": PACKAGE_NAME, "version": version,
+                         "interface": interface, "apps": "./.app.json"}
+        compatibility.pop("mcpServers", None)
+        configurations = {
+            "plugin.json": manifest,
+            ".codex-plugin/plugin.json": compatibility,
+            ".app.json": {"apps": {"paperone": {"id": app_id, "required": True}}},
+        }
+    for name, value in configurations.items():
         resources[name] = (json.dumps(value, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
     output.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.NamedTemporaryFile(dir=output.parent, suffix=".zip", delete=False) as temp:
@@ -142,8 +156,9 @@ def main() -> None:
     parser.add_argument("--target", choices=CLIENTS, required=True)
     parser.add_argument("--version", required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--app-id", help="Registered platform App ID (private target only)")
     args = parser.parse_args()
-    print(build_archive(args.source, args.output, args.target, args.version))
+    print(build_archive(args.source, args.output, args.target, args.version, app_id=args.app_id))
 
 
 if __name__ == "__main__":

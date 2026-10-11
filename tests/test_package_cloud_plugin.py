@@ -117,6 +117,27 @@ class CloudPluginPackageTests(unittest.TestCase):
         with zipfile.ZipFile(self.build()) as archive:
             self.assertFalse(any("__pycache__" in n or n.endswith(".pyc") for n in archive.namelist()))
 
+    def test_private_registered_app_binding_replaces_raw_mcp(self):
+        output = PACKAGER.build_archive(self.source, self.root / "app-bound.zip", "private", "0.3.1",
+                                        app_id="fixture-registered-app")
+        with zipfile.ZipFile(output) as archive:
+            manifest = json.loads(archive.read("paperone-test/plugin.json"))
+            app = json.loads(archive.read("paperone-test/.app.json"))
+            compatibility = json.loads(archive.read("paperone-test/.codex-plugin/plugin.json"))
+            self.assertEqual(manifest["extensions"]["com.openai"]["apps"], "./.app.json")
+            self.assertEqual(app, {"apps": {"paperone": {"id": "fixture-registered-app", "required": True}}})
+            self.assertEqual(compatibility["apps"], "./.app.json")
+            self.assertEqual(compatibility["version"], "0.3.1")
+            self.assertNotIn("mcpServers", compatibility)
+            self.assertNotIn("paperone-test/mcp.json", archive.namelist())
+            self.assertNotIn("paperone-test/.mcp.json", archive.namelist())
+            self.assertEqual(sum(n.endswith("/SKILL.md") for n in archive.namelist()), 4)
+
+    def test_app_binding_is_private_only_and_requires_nonempty_id(self):
+        for target, app_id in (("submission-draft", "fixture-registered-app"), ("private", ""), ("private", " ")):
+            with self.subTest(target=target, app_id=app_id), self.assertRaises(ValueError):
+                PACKAGER.build_archive(self.source, self.root / "invalid-app.zip", target, "0.3.1", app_id=app_id)
+
     def test_invalid_targets_versions_and_nested_outputs_are_rejected(self):
         for target, version in (("production", "0.3.0"), ("private", "latest"), ("private", "v0.3.0")):
             with self.subTest(target=target, version=version), self.assertRaises(ValueError):
