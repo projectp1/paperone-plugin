@@ -5,8 +5,8 @@
 | `search_papers` | Exactly one of `query`, `doi`, or `arxiv`; optional `page` and `pageSize` | Search bibliographic metadata |
 | `get_paper` | Exactly one of `corpusId` or `paperId` | Retrieve one paper |
 | `list_collections` | `includeShared` | List visible collections and `canAddPapers` hints; a paper may belong to multiple collections |
-| `list_library_papers` | `scope: personal/shared/folder`; folder scope requires `folderId` | Browse visible papers; `folder` scope selects a collection |
-| `add_paper_to_library` | `corpusId`; optional `folderId` | Save a paper when explicitly requested |
+| `list_library_papers` | `scope: personal/shared/collection`; collection scope requires `collectionId` | Browse visible papers; `collection` scope selects a collection |
+| `add_paper_to_library` | `corpusId`; optional `collectionId` | Save a paper when explicitly requested |
 | `get_pdf_download` | Exactly one of `corpusId` or `paperId` | Get current PDF metadata and a short-lived URL |
 
 Follow the connected MCP server's live schemas. Identifier searches accept only the identifier and pagination; do not add keyword sorting or filters. DOI input may be a bare value, a `doi:` prefix, or a resolver URL. arXiv input may be a bare value, a prefix, or an abs/pdf URL. A version suffix resolves the paper identity but does not guarantee that PDF version.
