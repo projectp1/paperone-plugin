@@ -13,9 +13,9 @@ Use PaperOne's MCP tools for literature search, metadata, library access, and PD
 |---|---|
 | Search by title, keywords, DOI, or arXiv ID | `search_papers` |
 | Retrieve one paper by known `corpusId` or `paperId` | `get_paper` |
-| List personal and shared folders | `list_folders` |
-| Browse personal, folder, or shared papers | `list_library_papers` |
-| Add a paper to the library or a writable folder | `add_paper_to_library` |
+| List personal and shared collections | `list_collections` |
+| Browse personal, collection, or shared papers | `list_library_papers` |
+| Add a paper to the library or a writable collection | `add_paper_to_library` |
 | Get current PDF metadata and a download URL | `get_pdf_download` |
 
 ## Search and metadata
@@ -26,8 +26,9 @@ Use PaperOne's MCP tools for literature search, metadata, library access, and PD
 - arXiv searches resolve a paper identity. A `vN` suffix identifies the same paper, but the returned metadata or PDF is not guaranteed to be that version or the latest version.
 - Use `get_paper` only when a known `corpusId` or `paperId` needs more detail; pass exactly one. Reuse existing search metadata when it is sufficient.
 - A `paperId` lookup requires library authorization. Do not bypass a failed library lookup by switching to a corpus lookup. Retrieving details does not download or save the paper.
-- Use `includeShared` with `list_folders`. For `list_library_papers`, use `scope: personal | shared | folder`; `folder` requires `folderId`. Follow `hasMore` when additional pages are needed. Folder scope includes direct associations only.
-- Call `add_paper_to_library` only when the user explicitly asks to save a paper. Use `canAddPapers` to select writable folders. Omit `folderId` for the personal library. Never silently save somewhere else after a failure. Report the returned `created`, `linked`, or `already_present` result.
+- PaperOne organizes papers in Collections. A paper may belong to multiple Collections; adding it to one does not move it out of another. Collections may be nested.
+- Use `includeShared` with `list_collections`. Collection IDs are exposed as `folderId` and `parentFolderId`. For `list_library_papers`, use `scope: personal | shared | folder`; `folder` selects a Collection and requires `folderId`. Collection scope includes direct memberships only. Pagination starts at `page: 1`, never 0; follow `hasMore` when additional pages are needed.
+- Call `add_paper_to_library` only when the user explicitly asks to save a paper. Use `canAddPapers` to select writable Collections. Use `folderId` to link the paper to a Collection, preserving its existing Collection memberships. Omit `folderId` for the personal library. Never silently save somewhere else after a failure. Report the returned `created`, `linked`, or `already_present` result.
 - Report tool failures with the returned `code` and `userMessage`. Use the host connection flow for authorization; never request passwords, tokens, or cookies.
 
 ## PDF metadata and downloads

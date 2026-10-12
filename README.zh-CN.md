@@ -10,8 +10,8 @@ PaperOne 的 Codex 插件：查找论文、管理文献库、获取 PDF，并使
 |---|---|
 | 标题、关键词、DOI、arXiv 检索 | `search_papers` |
 | 已知论文 ID 的 metadata | `get_paper` |
-| 个人及共享文件夹、文献 | `list_folders`、`list_library_papers` |
-| 保存论文到文献库或可写文件夹 | `add_paper_to_library` |
+| 个人及共享 Collection、文献 | `list_collections`、`list_library_papers` |
+| 保存论文到文献库或可写 Collection | `add_paper_to_library` |
 | PDF metadata 与下载地址 | `get_pdf_download` |
 | 中英文对照精读 | `nature-reader` |
 | 论文卡片、方法与证据分析 | `nature-paper-card` |

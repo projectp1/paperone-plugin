@@ -1,6 +1,6 @@
 # PaperOne Literature Plugin
 
-Version 0.2.1 provides six focused MCP tools: `search_papers`, `get_paper`, `list_folders`, `list_library_papers`, `add_paper_to_library`, and `get_pdf_download`. It also bundles local workflows for close reading and research cards. It does not wrap AI Search, AI Survey, or automated literature reviews.
+Version 0.2.1 provides six focused MCP tools: `search_papers`, `get_paper`, `list_collections`, `list_library_papers`, `add_paper_to_library`, and `get_pdf_download`. It also bundles local workflows for close reading and research cards. It does not wrap AI Search, AI Survey, or automated literature reviews.
 
 Search supports titles, keywords, DOI, and arXiv identifiers. Metadata uses `hasReadablePdf`. The PDF tool returns a short-lived URL, its expiry, and any available file hash and size; the host downloads and verifies the file according to the [PaperOne Literature skill](skills/paperone-literature/SKILL.md).
 
@@ -38,6 +38,6 @@ Public corpus search and details can be anonymous. Library access requires `libr
 1. Call `search_papers` with exactly one of `doi`, `arxiv`, or `query`.
 2. Reuse returned metadata; call `get_paper` only when additional details are needed.
 3. When the user requests a PDF, call `get_pdf_download`, download the signed URL, and verify the file.
-4. Save a paper only when requested. Use `list_folders` and `canAddPapers` before selecting a folder.
+4. Save a paper only when requested. Use `list_collections` and `canAddPapers` before selecting a collection.
 
 Example identifiers illustrate input formats and do not guarantee a match. See the [tool reference](docs/tools.md) for boundaries.

@@ -4,8 +4,8 @@
 |---|---|---|
 | `search_papers` | Exactly one of `query`, `doi`, or `arxiv`; optional `page` and `pageSize` | Search bibliographic metadata |
 | `get_paper` | Exactly one of `corpusId` or `paperId` | Retrieve one paper |
-| `list_folders` | `includeShared` | List visible folders and `canAddPapers` hints |
-| `list_library_papers` | `scope: personal/shared/folder`; folder scope requires `folderId` | Browse visible papers |
+| `list_collections` | `includeShared` | List visible collections and `canAddPapers` hints; a paper may belong to multiple collections |
+| `list_library_papers` | `scope: personal/shared/folder`; folder scope requires `folderId` | Browse visible papers; `folder` scope selects a collection |
 | `add_paper_to_library` | `corpusId`; optional `folderId` | Save a paper when explicitly requested |
 | `get_pdf_download` | Exactly one of `corpusId` or `paperId` | Get current PDF metadata and a short-lived URL |
 
