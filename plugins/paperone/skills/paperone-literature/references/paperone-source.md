@@ -40,8 +40,9 @@ to the requesting Nature skill afterward. Do not invoke skills recursively.
    rules in `paperone-literature`: check HTTP success and actual PDF content,
    and compare `sizeBytes` and `fileHashSha256` when returned.
 4. On expiry or HTTP 403, refresh with `get_pdf_download` once and retry once.
-   Report a repeated failure using the actual `code`/`userMessage`. Use the host
-   connection flow for authorization; never request a password, token or Cookie.
+   Report a repeated failure using the actual `code`/`userMessage`. For an
+   authorization failure, point to the host's PaperOne connection flow when one
+   exists; never request a password, token or Cookie.
 5. Hand back the verified local path plus bibliographic metadata and source
    provenance. Do not store signed URLs or credentials in reader/card artifacts.
    Record which document version was actually available; an arXiv `vN` request

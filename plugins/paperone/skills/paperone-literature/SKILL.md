@@ -5,7 +5,7 @@ description: Search PaperOne by DOI, arXiv ID, title, or keywords; retrieve bibl
 
 # PaperOne Literature
 
-Use PaperOne's MCP tools for literature search, metadata, library access, and PDF retrieval. Confirm that the tools are connected and follow their live schemas. If they are unavailable, explain that PaperOne must be connected. Report only fields returned by the tools.
+Use PaperOne's MCP tools for literature search, metadata, library access, and PDF retrieval. Follow their live schemas. If the tools are unavailable in this session, say so; when the host offers a way to connect PaperOne, point the user to it. Report only fields returned by the tools.
 
 ## Tool routing
 
@@ -29,7 +29,7 @@ Use PaperOne's MCP tools for literature search, metadata, library access, and PD
 - PaperOne organizes papers in Collections. A paper may belong to multiple Collections; adding it to one does not move it out of another. Collections may be nested.
 - Call `list_collections` with no arguments (`{}`). It returns personal Collections only; shared Collections are excluded. Collection IDs are exposed as `collectionId` and `parentCollectionId`. For `list_library_papers`, use `scope: personal | shared | collection`; `collection` selects a Collection and requires `collectionId`. Collection scope includes direct memberships only. Pagination starts at `page: 1`, never 0; follow `hasMore` when additional pages are needed.
 - Call `add_paper_to_library` only when the user explicitly asks to save a paper. Use `canAddPapers` to select writable Collections. Use `collectionId` to link the paper to a Collection, preserving its existing Collection memberships. Omit `collectionId` for the personal library. Never silently save somewhere else after a failure. Report the returned `created`, `linked`, or `already_present` result.
-- Report tool failures with the returned `code` and `userMessage`. Use the host connection flow for authorization; never request passwords, tokens, or cookies.
+- Report tool failures with the returned `code` and `userMessage`. For an authorization failure, point the user to the host's PaperOne connection flow when the host offers one; never request passwords, tokens, or cookies.
 
 ## PDF metadata and downloads
 
