@@ -1,11 +1,11 @@
-"""The skills must read correctly in every host: ChatGPT, Codex and the PaperOne research agent."""
+"""The skills must read correctly in every host: ChatGPT, Codex and the Researchzy research agent."""
 from __future__ import annotations
 
 import unittest
 from pathlib import Path
 
 SKILLS = Path(__file__).parents[1] / "plugins" / "paperone" / "skills"
-HOST_SPECIFIC = ("Use the host connection flow", "explain that PaperOne must be connected",
+HOST_SPECIFIC = ("Use the host connection flow", "explain that Researchzy must be connected",
                  "Confirm that the tools are connected")
 
 

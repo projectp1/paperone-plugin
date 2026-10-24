@@ -1,8 +1,8 @@
-# PaperOne Plugin
+# Researchzy Plugin
 
 [简体中文](README.zh-CN.md)
 
-PaperOne for Codex: search scholarly papers, work with your library, retrieve PDFs, read papers with source anchors, and create evidence-grounded research cards.
+Researchzy for Codex: search scholarly papers, work with your library, retrieve PDFs, read papers with source anchors, and create evidence-grounded research cards.
 
 ## Capabilities
 
@@ -25,9 +25,9 @@ codex plugin marketplace add projectp1/paperone-plugin --ref main
 codex plugin add paperone@projectp1
 ```
 
-Connect PaperOne in the host, complete sign-in and authorization, then start a new task so Codex loads the plugin. A GitHub marketplace source is user-installed and is separate from publication in the universal plugin directory.
+Connect Researchzy in the host, complete sign-in and authorization, then start a new task so Codex loads the plugin. A GitHub marketplace source is user-installed and is separate from publication in the universal plugin directory.
 
-The bundled MCP configuration targets `https://app.paperone.ai/mcp`. Production MCP and OAuth still require end-to-end connection validation. The test environment's DOI, DOI URL, and arXiv REST searches were verified on 2026-09-18. See [connection setup](docs/connection.md) for environment details.
+The bundled MCP configuration targets `https://app.researchzy.com/mcp`. Production MCP and OAuth still require end-to-end connection validation. The test environment's DOI, DOI URL, and arXiv REST searches were verified on 2026-09-18. See [connection setup](docs/connection.md) for environment details.
 
 ## Examples
 
@@ -46,8 +46,8 @@ plugins/paperone/                  Installable plugin package
 docs/                              Connection and maintenance notes
 ```
 
-This repository owns the plugin package. The PaperOne backend owns the API, MCP service, OAuth implementation, and search indexes. See [maintenance notes](docs/maintenance.md) for provenance and validation.
+This repository owns the plugin package. The Researchzy backend owns the API, MCP service, OAuth implementation, and search indexes. See [maintenance notes](docs/maintenance.md) for provenance and validation.
 
 ## Licensing
 
-Bundled Nature Skills retain their Apache-2.0 license and attribution; see [third-party notices](plugins/paperone/THIRD_PARTY_NOTICES.md). PaperOne-owned files do not yet declare a separate open-source license.
+Bundled Nature Skills retain their Apache-2.0 license and attribution; see [third-party notices](plugins/paperone/THIRD_PARTY_NOTICES.md). Researchzy-owned files do not yet declare a separate open-source license.

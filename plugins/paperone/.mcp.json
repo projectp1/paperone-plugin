@@ -2,7 +2,7 @@
   "mcpServers": {
     "paperone": {
       "type": "http",
-      "url": "https://app.paperone.ai/mcp",
+      "url": "https://app.researchzy.com/mcp",
       "oauth": {
         "clientId": "paperone-codex",
         "callbackUrl": "http://127.0.0.1:8766/callback",

@@ -24,9 +24,9 @@ class CloudPluginPackageTests(unittest.TestCase):
         self.source = self.root / "source"
         (self.source / ".codex-plugin").mkdir(parents=True)
         self.default_prompt = ["Find papers", "Read the selected PDF"]
-        metadata = {"name": "paperone", "version": "0.2.1", "description": "PaperOne literature tools.",
-                    "author": {"name": "PaperOne"},
-                    "interface": {"developerName": "PaperOne", "longDescription": "Find and read papers.",
+        metadata = {"name": "paperone", "version": "0.2.1", "description": "Researchzy literature tools.",
+                    "author": {"name": "Researchzy"},
+                    "interface": {"developerName": "Researchzy", "longDescription": "Find and read papers.",
                                   "defaultPrompt": self.default_prompt}}
         (self.source / ".codex-plugin" / "plugin.json").write_text(json.dumps(metadata), encoding="utf-8")
         for name in ("paperone-literature", "nature-reader", "nature-paper-card", "nature-shared"):
@@ -37,7 +37,7 @@ class CloudPluginPackageTests(unittest.TestCase):
         (self.source / "licenses" / "upstream.txt").write_text("Upstream license", encoding="utf-8")
         (self.source / "THIRD_PARTY_NOTICES.md").write_text("Notices", encoding="utf-8")
         (self.source / "requirements.txt").write_text("PyMuPDF>=1.24,<2\n", encoding="utf-8")
-        (self.source / ".mcp.json").write_text('{"production":"https://app.paperone.ai/mcp"}', encoding="utf-8")
+        (self.source / ".mcp.json").write_text('{"production":"https://app.researchzy.com/mcp"}', encoding="utf-8")
 
     def build(self, target="private", version="0.3.0"):
         return PACKAGER.build_archive(self.source, self.root / f"{target}.zip", target, version)
@@ -77,7 +77,7 @@ class CloudPluginPackageTests(unittest.TestCase):
             interface = manifest["extensions"]["com.openai"]["interface"]
             self.assertEqual(manifest["name"], "paperone-test")
             self.assertEqual(manifest["version"], "0.3.0")
-            self.assertEqual(interface["displayName"], "PaperOne Test")
+            self.assertEqual(interface["displayName"], "Researchzy Test")
             self.assertLessEqual(len(interface["shortDescription"]), 30)
             self.assertEqual(interface["defaultPrompt"], self.default_prompt)
             self.assertIn("paperone-test/" + interface["logo"][2:], names)

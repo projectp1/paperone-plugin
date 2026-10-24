@@ -1,6 +1,6 @@
 # Equation handling
 
-> Modified by PaperOne (2026-09-13): use the installed skill directory for validation.
+> Modified by Researchzy (2026-09-13): use the installed skill directory for validation.
 
 ## Contents
 

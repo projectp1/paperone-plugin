@@ -3,7 +3,7 @@
 The PDF has an extractable text layer. Use the host's `pdf` skill when available,
 or available PDF tooling as described in the core output contract.
 
-> Modified by PaperOne (2026-09-13): make the host PDF skill optional.
+> Modified by Researchzy (2026-09-13): make the host PDF skill optional.
 
 - Extract the text layer directly; do not OCR text that is already selectable.
 - Process the whole document, not just the first pages. Build the source map (step 2) across every page.

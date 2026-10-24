@@ -5,7 +5,7 @@ description: Build a source-grounded deep-reading Paper Card for one scientific 
 
 # Nature Paper Card - Router
 
-> PaperOne adaptation (2026-09-13): added optional PaperOne source acquisition
+> Researchzy adaptation (2026-09-13): added optional Researchzy source acquisition
 > and made references to unbundled Nature workflows optional. See THIRD_PARTY_NOTICES.md.
 
 Use this skill to turn one paper into an evidence-grounded research card, not a translated abstract, generic summary, reviewer report, or publication article.
@@ -26,11 +26,11 @@ Read [manifest.yaml](manifest.yaml), then read every file under `always_load`. D
 
 ### 2. Establish the source boundary
 
-If the input is a DOI, arXiv ID, title or PaperOne ID and full text has not yet
+If the input is a DOI, arXiv ID, title or Researchzy ID and full text has not yet
 been obtained, read
-[PaperOne source acquisition](../paperone-literature/references/paperone-source.md).
-Use connected PaperOne tools to retrieve a verified local PDF before continuing.
-Local PDFs and supplied reader source maps need no PaperOne connection and no
+[Researchzy source acquisition](../paperone-literature/references/paperone-source.md).
+Use connected Researchzy tools to retrieve a verified local PDF before continuing.
+Local PDFs and supplied reader source maps need no Researchzy connection and no
 extra bilingual translation step. Keep metadata-only requests in
 `paperone-literature`; a PDF download must not automatically save to a library.
 
@@ -166,7 +166,7 @@ If the auditor itself cannot run, state that failure and manually apply only its
 ## Relationship to adjacent skills
 
 - Use `nature-reader` for full-text bilingual reading artifacts, extraction, and stable source maps.
-- Use connected PaperOne search for related literature metadata. Field history
+- Use connected Researchzy search for related literature metadata. Field history
   and novelty still require checking the actual cited sources; search metadata
   alone is not independent verification of a claim.
 - Other upstream workflows such as `nature-reviewer`, `nature-literature-pipeline`

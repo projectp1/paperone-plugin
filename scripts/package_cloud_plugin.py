@@ -1,4 +1,4 @@
-"""Package the existing PaperOne workflows for private cloud use or a submission draft."""
+"""Package the existing Researchzy workflows for private cloud use or a submission draft."""
 from __future__ import annotations
 
 import argparse
@@ -46,7 +46,7 @@ def _resources(source: Path) -> dict[str, bytes]:
     result: dict[str, bytes] = {}
     skill_root = source / "skills"
     if not skill_root.is_dir() or {p.name for p in skill_root.iterdir() if p.is_dir()} != SKILLS:
-        raise ValueError("source must contain the four expected PaperOne skills")
+        raise ValueError("source must contain the four expected Researchzy skills")
     for directory in (skill_root, source / "licenses"):
         _check_resource(directory, source)
         for path in sorted(directory.rglob("*")):
@@ -96,7 +96,7 @@ def build_archive(source: Path, output: Path, target: str, version: str, *, app_
     original_interface = metadata["interface"]
     interface = {key: original_interface[key] for key in ("longDescription", "developerName", "defaultPrompt")
                  if key in original_interface}
-    interface.update(displayName="PaperOne Test", shortDescription="Search papers and read PDFs",
+    interface.update(displayName="Researchzy Test", shortDescription="Search papers and read PDFs",
                      category="Productivity", capabilities=[], logo="./assets/paperone-mark.png",
                      composerIcon="./assets/paperone-mark.png")
     manifest = {

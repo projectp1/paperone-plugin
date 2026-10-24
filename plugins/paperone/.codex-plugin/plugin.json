@@ -1,19 +1,19 @@
 {
   "name": "paperone",
-  "version": "0.3.0",
-  "description": "PaperOne literature search, library and PDFs with source-grounded paper reading and research cards.",
+  "version": "0.4.0",
+  "description": "Researchzy literature search, library and PDFs with source-grounded paper reading and research cards.",
   "author": {
-    "name": "PaperOne"
+    "name": "Researchzy"
   },
   "skills": "./skills/",
   "interface": {
-    "displayName": "PaperOne",
+    "displayName": "Researchzy",
     "shortDescription": "Find papers, read PDFs and create research cards.",
     "longDescription": "Search by DOI, arXiv, title or keywords; manage your library and download PDFs. Read papers with source anchors or create evidence-grounded research cards using bundled Nature Skills.",
-    "developerName": "PaperOne",
+    "developerName": "Researchzy",
     "category": "Productivity",
     "capabilities": [],
-    "defaultPrompt": "Find papers in PaperOne and show their metadata and PDF availability."
+    "defaultPrompt": "Find papers in Researchzy and show their metadata and PDF availability."
   },
   "mcpServers": "./.mcp.json",
   "repository": "https://github.com/projectp1/paperone-plugin",

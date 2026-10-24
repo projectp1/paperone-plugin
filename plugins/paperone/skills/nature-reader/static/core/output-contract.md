@@ -1,6 +1,6 @@
 # Output contract
 
-> Modified by PaperOne (2026-09-13): resolve bundled scripts from the installed
+> Modified by Researchzy (2026-09-13): resolve bundled scripts from the installed
 > skill directory and make host PDF tooling availability explicit.
 
 Prefer these outputs:

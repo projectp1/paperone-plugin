@@ -1,10 +1,10 @@
 # Source: DOI or arXiv identifier
 
-> Modified by PaperOne (2026-09-13): prefer the plugin's connected MCP source.
+> Modified by Researchzy (2026-09-13): prefer the plugin's connected MCP source.
 
-First follow the PaperOne source-acquisition reference linked from this skill's
+First follow the Researchzy source-acquisition reference linked from this skill's
 `SKILL.md`. If it already returned a verified local PDF, load the PDF source
-fragment directly. If PaperOne is unavailable or a public record/PDF is absent,
+fragment directly. If Researchzy is unavailable or a public record/PDF is absent,
 use the lawful public-source steps below, preserving the authorization boundary.
 
 The user gave a bare DOI or arXiv id/link that must be resolved before reading.

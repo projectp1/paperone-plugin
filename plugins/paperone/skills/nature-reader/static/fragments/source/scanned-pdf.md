@@ -4,7 +4,7 @@ The PDF is image-only or has an unreliable text layer. Use the host's `pdf` skil
 when available for OCR guidance. Otherwise use available OCR tooling and report
 missing capabilities as described in the core output contract.
 
-> Modified by PaperOne (2026-09-13): make the host PDF skill optional.
+> Modified by Researchzy (2026-09-13): make the host PDF skill optional.
 
 - OCR every page; do not assume a usable text layer exists.
 - Record a confidence level for each block in the source map, and mark low-confidence blocks explicitly in `translation_notes.md` rather than guessing.

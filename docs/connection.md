@@ -1,10 +1,10 @@
-# Connect PaperOne
+# Connect Researchzy
 
-The plugin uses PaperOne through a remote MCP server. The installable package is under `plugins/paperone`; edit its `.mcp.json` only when selecting a deployed environment for local testing.
+The plugin uses Researchzy through a remote MCP server. The installable package is under `plugins/paperone`; edit its `.mcp.json` only when selecting a deployed environment for local testing.
 
 | Environment | MCP URL | Status |
 |---|---|---|
-| Default production target | `https://app.paperone.ai/mcp` | End-to-end connection validation pending |
+| Default production target | `https://app.researchzy.com/mcp` | End-to-end connection validation pending |
 | Test | `https://app.testp1.testdomain.stream/mcp` | DOI/arXiv REST search accepted; repository-installed host connection still pending |
 
 `mcpServers.paperone.url` must match the selected server's MCP resource. The public OAuth client ID is `paperone-codex`; its callback is `http://127.0.0.1:8766/callback`, with `callbackPort` set to `8766`. The server must register the exact client ID and callback. Do not mix issuers or tokens between environments.
@@ -18,4 +18,4 @@ codex plugin marketplace add /absolute/path/to/paperone-plugin
 codex plugin add paperone@projectp1
 ```
 
-If a Git marketplace with the same name is already configured, switch sources through the host's marketplace workflow instead of keeping two sources with the same name. An existing personal `PaperOne Test` plugin is a separate installation; this repository does not replace it automatically.
+If a Git marketplace with the same name is already configured, switch sources through the host's marketplace workflow instead of keeping two sources with the same name. An existing personal `Researchzy Test` plugin is a separate installation; this repository does not replace it automatically.

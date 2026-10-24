@@ -8,15 +8,15 @@ metadata:
 
 # Full-Paper Markdown Reader — Router
 
-> PaperOne adaptation (2026-09-13): added optional PaperOne source acquisition.
+> Researchzy adaptation (2026-09-13): added optional Researchzy source acquisition.
 > Upstream source and license are recorded in the plugin's THIRD_PARTY_NOTICES.md.
 
-## PaperOne source entry
+## Researchzy source entry
 
 Before source-format detection, read
-[PaperOne source acquisition](../paperone-literature/references/paperone-source.md)
-when a DOI, arXiv ID, title or PaperOne ID must be resolved. Prefer connected
-PaperOne tools to obtain and verify the PDF, then continue with the actual file
+[Researchzy source acquisition](../paperone-literature/references/paperone-source.md)
+when a DOI, arXiv ID, title or Researchzy ID must be resolved. Prefer connected
+Researchzy tools to obtain and verify the PDF, then continue with the actual file
 format. Local PDFs and supplied text can be processed directly. Metadata-only
 requests stop at metadata. Apply the source/reuse boundary in that reference
 before the full-paper bilingual defaults below.
