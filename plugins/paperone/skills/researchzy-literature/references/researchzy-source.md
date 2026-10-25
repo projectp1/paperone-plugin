@@ -11,7 +11,7 @@ to the requesting Nature skill afterward. Do not invoke skills recursively.
   it directly. A Paper Card can consume the PDF itself; a bilingual reader is
   not a prerequisite. Reuse an existing verified download within the task.
 - If the user only wants search results or bibliographic metadata, use
-  `paperone-literature` and stop after returning metadata. Do not create a reader
+  `researchzy-literature` and stop after returning metadata. Do not create a reader
   or card. A request to read, translate, or analyse an identified paper includes
   retrieving its available full text, but does not request adding it to a library.
 - If no full text is available yet and Researchzy tools are connected, use the
@@ -37,7 +37,7 @@ to the requesting Nature skill afterward. Do not invoke skills recursively.
 3. Use the returned `url` before `expiresAt` to download into the task workspace.
    The signed GET request must not include Researchzy Authorization or Cookies.
    A URL alone is not a downloaded PDF. Follow the existing PDF verification
-   rules in `paperone-literature`: check HTTP success and actual PDF content,
+   rules in `researchzy-literature`: check HTTP success and actual PDF content,
    and compare `sizeBytes` and `fileHashSha256` when returned.
 4. On expiry or HTTP 403, refresh with `get_pdf_download` once and retry once.
    Report a repeated failure using the actual `code`/`userMessage`. For an

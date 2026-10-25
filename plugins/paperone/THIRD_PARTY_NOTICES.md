@@ -25,7 +25,7 @@ Researchzy modifications (2026-09-13):
   classification fallback, and optional references to workflows outside this bundle.
 
 Researchzy's own source-acquisition reference resides in
-`skills/paperone-literature/references/paperone-source.md`. Shared upstream
+`skills/researchzy-literature/references/researchzy-source.md`. Shared upstream
 content and the bundled Python scripts are otherwise unchanged.
 
 Packaging changes (2026-09-18): paper-card README tutorial links now point to the pinned upstream repository because those tutorials are not bundled.

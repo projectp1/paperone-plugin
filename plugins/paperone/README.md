@@ -1,8 +1,8 @@
 # Researchzy Literature Plugin
 
-Version 1.1.1 provides seven focused MCP tools: `search_papers`, `get_paper`, `list_collections`, `create_collection`, `list_library_papers`, `add_paper_to_library`, and `get_pdf_download`. It also bundles local workflows for close reading and research cards. It does not wrap AI Search, AI Survey, or automated literature reviews.
+Version 1.2.0 provides seven focused MCP tools: `search_papers`, `get_paper`, `list_collections`, `create_collection`, `list_library_papers`, `add_paper_to_library`, and `get_pdf_download`. It also bundles local workflows for close reading and research cards. It does not wrap AI Search, AI Survey, or automated literature reviews.
 
-Search supports titles, keywords, DOI, and arXiv identifiers. Metadata uses `hasReadablePdf`. The PDF tool returns a short-lived URL, its expiry, and any available file hash and size; the host downloads and verifies the file according to the [Researchzy Literature skill](skills/paperone-literature/SKILL.md).
+Search supports titles, keywords, DOI, and arXiv identifiers. Metadata uses `hasReadablePdf`. The PDF tool returns a short-lived URL, its expiry, and any available file hash and size; the host downloads and verifies the file according to the [Researchzy Literature skill](skills/researchzy-literature/SKILL.md).
 
 DOI and arXiv lookup uses the backend's independent identifier index. The test environment has passed REST acceptance for DOI, DOI URL, and arXiv lookup. Production connection status is documented in [connection setup](https://github.com/projectp1/paperone-plugin/blob/main/docs/connection.md).
 
@@ -10,12 +10,12 @@ DOI and arXiv lookup uses the backend's independent identifier index. The test e
 
 | User goal | Skill | Result |
 |---|---|---|
-| Search, metadata, library, or PDF retrieval | `paperone-literature` | Real metadata or a verified local PDF |
+| Search, metadata, library, or PDF retrieval | `researchzy-literature` | Real metadata or a verified local PDF |
 | Close reading, bilingual reading, or translation | `nature-reader` | `paper.md`, `source_map.json`, figure/equation assets, and reading notes |
 | Paper Card, evidence chain, methods, or limitations | `nature-paper-card` | Source-anchored `paper-card.md` and an audit report |
 | Shared Nature workflow dependency | `nature-shared` | Loaded on demand; no standalone user entry point |
 
-For Nature workflows, Codex follows the [source acquisition rules](skills/paperone-literature/references/paperone-source.md), retrieves and verifies the PDF, then runs the requested local skill. Researchzy's backend does not execute these skills. Existing local PDFs or reader artifacts can be used directly, and a Paper Card does not require a translation first. Metadata alone is not enough to invent full-text claims or page references.
+For Nature workflows, Codex follows the [source acquisition rules](skills/researchzy-literature/references/researchzy-source.md), retrieves and verifies the PDF, then runs the requested local skill. Researchzy's backend does not execute these skills. Existing local PDFs or reader artifacts can be used directly, and a Paper Card does not require a translation first. Metadata alone is not enough to invent full-text claims or page references.
 
 Example prompts:
 

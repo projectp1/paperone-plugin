@@ -14,7 +14,7 @@ metadata:
 ## Researchzy source entry
 
 Before source-format detection, read
-[Researchzy source acquisition](../paperone-literature/references/paperone-source.md)
+[Researchzy source acquisition](../researchzy-literature/references/researchzy-source.md)
 when a DOI, arXiv ID, title or Researchzy ID must be resolved. Prefer connected
 Researchzy tools to obtain and verify the PDF, then continue with the actual file
 format. Local PDFs and supplied text can be processed directly. Metadata-only

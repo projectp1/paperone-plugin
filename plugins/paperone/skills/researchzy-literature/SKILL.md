@@ -1,5 +1,5 @@
 ---
-name: paperone-literature
+name: researchzy-literature
 description: Search Researchzy by DOI, arXiv ID, title, or keywords; retrieve bibliographic metadata, browse personal or shared libraries, create personal collections, and get verified PDF metadata or downloads. Use for paper discovery and library operations, not for deep reading or research-card analysis.
 ---
 
@@ -49,5 +49,5 @@ Use Researchzy's MCP tools for literature search, metadata, library access, and 
 - Stop after search or metadata when that is all the user requested.
 - For full-paper reading, bilingual translation, or close reading, continue with the bundled `nature-reader` skill.
 - For a structured Paper Card, claim-to-evidence analysis, limitations, or research ideas, continue with `nature-paper-card`.
-- These analysis requests allow retrieving the selected paper's available full text. Read [Researchzy source acquisition](references/paperone-source.md), obtain and verify the PDF, then pass its local path and real metadata to the selected skill. Do not add the paper to the library unless requested.
+- These analysis requests allow retrieving the selected paper's available full text. Read [Researchzy source acquisition](references/researchzy-source.md), obtain and verify the PDF, then pass its local path and real metadata to the selected skill. Do not add the paper to the library unless requested.
 - If a local PDF or existing reader artifact is already available, use it directly. A Paper Card does not require a bilingual reader first.

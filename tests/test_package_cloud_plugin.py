@@ -29,7 +29,7 @@ class CloudPluginPackageTests(unittest.TestCase):
                     "interface": {"developerName": "Researchzy", "longDescription": "Find and read papers.",
                                   "defaultPrompt": self.default_prompt}}
         (self.source / ".codex-plugin" / "plugin.json").write_text(json.dumps(metadata), encoding="utf-8")
-        for name in ("paperone-literature", "nature-reader", "nature-paper-card", "nature-shared"):
+        for name in ("researchzy-literature", "nature-reader", "nature-paper-card", "nature-shared"):
             directory = self.source / "skills" / name
             directory.mkdir(parents=True)
             (directory / "SKILL.md").write_text(f"---\nname: {name}\ndescription: Test workflow.\n---\nUse this workflow.\n", encoding="utf-8")

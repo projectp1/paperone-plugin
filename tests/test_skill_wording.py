@@ -21,7 +21,7 @@ class SkillWordingTests(unittest.TestCase):
                 self.assertNotIn(phrase, text, f"{path.relative_to(SKILLS)}: {phrase!r}")
 
     def test_authorization_failures_still_forbid_asking_for_credentials(self):
-        for name in ("paperone-literature/SKILL.md", "paperone-literature/references/paperone-source.md"):
+        for name in ("researchzy-literature/SKILL.md", "researchzy-literature/references/researchzy-source.md"):
             text = normalized(SKILLS / name)
             self.assertIn("never request", text)
             self.assertIn("connection flow when", text)
