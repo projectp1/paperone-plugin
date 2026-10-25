@@ -5,7 +5,7 @@ The plugin uses Researchzy through a remote MCP server. The installable package 
 | Environment | MCP URL | Status |
 |---|---|---|
 | Default production target | `https://app.researchzy.com/mcp` | End-to-end connection validation pending |
-| Test | `https://app.testp1.testdomain.stream/mcp` | DOI/arXiv REST search accepted; repository-installed host connection still pending |
+| Test | `https://app.testp1.testdomain.stream/mcp` | Sign-in, refresh and disconnect verified on 2026-10-25 (release 1.0.202610250432) with the Codex CLI (`paperone-codex`) and Claude Code (metadata document); DOI/arXiv search accepted |
 
 `mcpServers.researchzy.url` must match the selected server's MCP resource. The public OAuth client ID is `paperone-codex`; its callback is `http://127.0.0.1:8766/callback`, with `callbackPort` set to `8766`. The server must register the client ID; a loopback callback (`127.0.0.1`, `[::1]` or `localhost`) matches on any port, every other callback exactly. Do not mix issuers or tokens between environments.
 
