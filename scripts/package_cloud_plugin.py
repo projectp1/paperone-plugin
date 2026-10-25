@@ -109,7 +109,7 @@ def build_archive(source: Path, output: Path, target: str, version: str, *, app_
             manifest[key] = metadata[key]
     mcp = {
         "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
-        "mcpServers": {"paperone": {
+        "mcpServers": {"researchzy": {
             "type": "streamable-http", "url": TEST_ORIGIN + "/mcp",
             "extensions": {"com.openai": {"auth": {
                 "type": "oauth", "client": {"mode": "provided", "clientId": CLIENTS[target],

@@ -1,6 +1,6 @@
 {
   "mcpServers": {
-    "paperone": {
+    "researchzy": {
       "type": "http",
       "url": "https://app.researchzy.com/mcp",
       "oauth": {

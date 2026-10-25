@@ -60,7 +60,7 @@ class CloudPluginPackageTests(unittest.TestCase):
     def test_target_selects_exact_test_oauth_client(self):
         for target, client in (("private", "paperone-chatgpt-test"), ("submission-draft", "paperone-openai-draft-test")):
             with self.subTest(target=target), zipfile.ZipFile(self.build(target)) as archive:
-                server = json.loads(archive.read("paperone-test/mcp.json"))["mcpServers"]["paperone"]
+                server = json.loads(archive.read("paperone-test/mcp.json"))["mcpServers"]["researchzy"]
                 auth = server["extensions"]["com.openai"]["auth"]
                 self.assertEqual(server["type"], "streamable-http")
                 self.assertEqual(server["url"], "https://app.testp1.testdomain.stream/mcp")
