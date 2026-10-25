@@ -24,6 +24,7 @@ Use Researchzy's MCP tools for literature search, metadata, library access, and 
 - Reuse returned titles, authors, abstracts, identifiers, years, `corpusId`, and `hasReadablePdf`. Do not infer missing values.
 - Pass a DOI or DOI resolver URL as `doi`, an arXiv ID/prefix/abs URL/pdf URL as `arxiv`, and a title or keyword query as `query`. Pass exactly one. The service normalizes supported forms.
 - Identifier searches accept pagination only. Do not attach keyword filters, sorting, venue, year, or PDF filters. An empty exact search means only that Researchzy found no indexed match.
+- Keyword searches may narrow or order results when the user's request calls for it: `sort: citationCount` for influential work, `sort: year` for the newest, `yearFrom`/`yearTo` for a period, `venue`, `fieldOfStudy` (the index's field name, such as `Computer Science`), and `hasPdfInS3: true` for papers whose PDF Researchzy holds.
 - arXiv searches resolve a paper identity. A `vN` suffix identifies the same paper, but the returned metadata or PDF is not guaranteed to be that version or the latest version.
 - Use `get_paper` only when a known `corpusId` or `paperId` needs more detail; pass exactly one. Reuse existing search metadata when it is sufficient.
 - A `paperId` lookup requires library authorization. Do not bypass a failed library lookup by switching to a corpus lookup. Retrieving details does not download or save the paper.
