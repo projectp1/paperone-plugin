@@ -15,4 +15,6 @@ Follow the connected MCP server's live schemas. Every tool requires a connected 
 
 Metadata may include title, authors, abstract, year, `corpusId`, `doi`, `arxiv`, and `hasReadablePdf`. A successful empty search means only that the current index found no match. Do not interpret a backend error as evidence that the paper does not exist.
 
+A paper whose PDF Researchzy can show (`hasReadablePdf: true`) also has `readerUrl`, its page in the Researchzy reader. Search results and `get_paper` by `corpusId` open read-only; library papers from `list_library_papers`, `get_paper` by `paperId` and `add_paper_to_library` open with the user's highlights and notes. `add_paper_to_library` returns `hasReadablePdf` for the saved paper. Give `readerUrl` to the user as a link. It is a web page for the signed-in user, not a PDF: use `get_pdf_download` for the file.
+
 `hasReadablePdf` is a hint. Use `get_pdf_download` for current `url`, `expiresAt`, and any available `sizeBytes` or `fileHashSha256`. Do not attach Researchzy authorization or cookies to the signed URL. Receiving a URL alone does not complete the download. See the [Researchzy Literature skill](../skills/researchzy-literature/SKILL.md) for the full workflow.
