@@ -1,6 +1,6 @@
 ---
 name: paperone-literature
-description: Search Researchzy by DOI, arXiv ID, title, or keywords; retrieve bibliographic metadata, browse personal or shared libraries, and get verified PDF metadata or downloads. Use for paper discovery and library operations, not for deep reading or research-card analysis.
+description: Search Researchzy by DOI, arXiv ID, title, or keywords; retrieve bibliographic metadata, browse personal or shared libraries, create personal collections, and get verified PDF metadata or downloads. Use for paper discovery and library operations, not for deep reading or research-card analysis.
 ---
 
 # Researchzy Literature
@@ -14,6 +14,7 @@ Use Researchzy's MCP tools for literature search, metadata, library access, and 
 | Search by title, keywords, DOI, or arXiv ID | `search_papers` |
 | Retrieve one paper by known `corpusId` or `paperId` | `get_paper` |
 | List personal collections | `list_collections` |
+| Create a personal collection | `create_collection` |
 | Browse personal, collection, or shared papers | `list_library_papers` |
 | Add a paper to the library or a writable collection | `add_paper_to_library` |
 | Get current PDF metadata and a download URL | `get_pdf_download` |
@@ -28,6 +29,7 @@ Use Researchzy's MCP tools for literature search, metadata, library access, and 
 - A `paperId` lookup requires library authorization. Do not bypass a failed library lookup by switching to a corpus lookup. Retrieving details does not download or save the paper.
 - Researchzy organizes papers in Collections. A paper may belong to multiple Collections; adding it to one does not move it out of another. Collections may be nested.
 - Call `list_collections` with no arguments (`{}`). It returns personal Collections only; shared Collections are excluded. Collection IDs are exposed as `collectionId` and `parentCollectionId`. For `list_library_papers`, use `scope: personal | shared | collection`; `collection` selects a Collection and requires `collectionId`. Collection scope includes direct memberships only. Pagination starts at `page: 1`, never 0; follow `hasMore` when additional pages are needed.
+- Call `create_collection` only when the user asks for a new collection, or asks to save papers into a collection that `list_collections` does not return. It creates personal collections only: there is no way to create a shared collection, and `parentCollectionId` must be a personal collection. Pass `name` and, to nest it, `parentCollectionId`. A same-named personal collection in the same place (ignoring case) is returned with `status: already_present` instead of a duplicate; report `created` or `already_present` and use the returned `collectionId`.
 - Call `add_paper_to_library` only when the user explicitly asks to save a paper. Use `canAddPapers` to select writable Collections. Use `collectionId` to link the paper to a Collection, preserving its existing Collection memberships. Omit `collectionId` for the personal library. Never silently save somewhere else after a failure. Report the returned `created`, `linked`, or `already_present` result.
 - Report tool failures with the returned `code` and `userMessage`. For an authorization failure, point the user to the host's Researchzy connection flow when the host offers one; never request passwords, tokens, or cookies.
 

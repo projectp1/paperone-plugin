@@ -1,6 +1,6 @@
 # Researchzy Literature Plugin
 
-Version 1.0.1 provides six focused MCP tools: `search_papers`, `get_paper`, `list_collections`, `list_library_papers`, `add_paper_to_library`, and `get_pdf_download`. It also bundles local workflows for close reading and research cards. It does not wrap AI Search, AI Survey, or automated literature reviews.
+Version 1.1.0 provides seven focused MCP tools: `search_papers`, `get_paper`, `list_collections`, `create_collection`, `list_library_papers`, `add_paper_to_library`, and `get_pdf_download`. It also bundles local workflows for close reading and research cards. It does not wrap AI Search, AI Survey, or automated literature reviews.
 
 Search supports titles, keywords, DOI, and arXiv identifiers. Metadata uses `hasReadablePdf`. The PDF tool returns a short-lived URL, its expiry, and any available file hash and size; the host downloads and verifies the file according to the [Researchzy Literature skill](skills/paperone-literature/SKILL.md).
 

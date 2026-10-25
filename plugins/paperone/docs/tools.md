@@ -6,6 +6,7 @@
 | `get_paper` | Exactly one of `corpusId` or `paperId` | Retrieve one paper |
 | `list_collections` | No arguments (`{}`) | List visible personal collections only and `canAddPapers` hints; a paper may belong to multiple collections |
 | `list_library_papers` | `scope: personal/shared/collection`; collection scope requires `collectionId` | Browse visible papers; `collection` scope selects a collection |
+| `create_collection` | `name` (1–100 characters); optional `parentCollectionId` of a personal collection | Create a personal collection when explicitly requested; shared collections cannot be created or used as the parent. An existing personal collection with the same name in the same place is returned with `status: already_present` |
 | `add_paper_to_library` | `corpusId`; optional `collectionId` | Save a paper when explicitly requested |
 | `get_pdf_download` | Exactly one of `corpusId` or `paperId` | Get current PDF metadata and a short-lived URL |
 

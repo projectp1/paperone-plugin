@@ -11,6 +11,7 @@ Researchzy for Codex: search scholarly papers, work with your library, retrieve 
 | Search by title, keywords, DOI, or arXiv ID | `search_papers` |
 | Retrieve metadata for a known paper ID | `get_paper` |
 | Browse personal collections and personal/shared papers | `list_collections`, `list_library_papers` |
+| Create a personal collection (shared collections cannot be created) | `create_collection` |
 | Save a paper to the library or a writable collection | `add_paper_to_library` |
 | Get PDF metadata and download URLs | `get_pdf_download` |
 | Build a source-grounded bilingual reader | `nature-reader` |
