@@ -14,6 +14,7 @@ Researchzy for Codex: search scholarly papers, work with your library, retrieve 
 | Create a personal collection (shared collections cannot be created) | `create_collection` |
 | Save a paper to the library or a writable collection | `add_paper_to_library` |
 | Get PDF metadata and download URLs | `get_pdf_download` |
+| Add a PDF file to a library paper that has none | `create_pdf_upload` |
 | Build a source-grounded bilingual reader | `nature-reader` |
 | Create an evidence-grounded research card | `nature-paper-card` |
 

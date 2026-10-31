@@ -14,6 +14,7 @@ Researchzy 的 Codex 插件：查找论文、管理文献库、获取 PDF，并�
 | 新建个人 Collection（不能新建共享 Collection） | `create_collection` |
 | 保存论文到文献库或可写 Collection | `add_paper_to_library` |
 | PDF metadata 与下载地址 | `get_pdf_download` |
+| 给还没有 PDF 的文献库论文上传 PDF | `create_pdf_upload` |
 | 中英文对照精读 | `nature-reader` |
 | 论文卡片、方法与证据分析 | `nature-paper-card` |
 

@@ -9,7 +9,7 @@ The plugin uses Researchzy through a remote MCP server. The installable package 
 
 `mcpServers.researchzy.url` must match the selected server's MCP resource. The public OAuth client ID is `paperone-codex`; its callback is `http://127.0.0.1:8766/callback`, with `callbackPort` set to `8766`. The server must register the client ID; a loopback callback (`127.0.0.1`, `[::1]` or `localhost`) matches on any port, every other callback exactly. Do not mix issuers or tokens between environments.
 
-Every tool requires sign-in and the scopes declared by the live tools: `library.read` for search, details, library and profile, `library.write` for saving papers and creating collections, `pdf.read` for PDF download metadata. Never put passwords, cookies, access tokens, or signing keys in plugin files. The client ID is public configuration.
+Every tool requires sign-in and the scopes declared by the live tools: `library.read` for search, details, library and profile, `library.write` for saving papers, creating collections and adding PDFs to library papers, `pdf.read` for PDF download metadata. Never put passwords, cookies, access tokens, or signing keys in plugin files. The client ID is public configuration.
 
 ## Sign-in and tokens
 

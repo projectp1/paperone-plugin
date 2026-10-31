@@ -1,6 +1,6 @@
 {
   "name": "paperone",
-  "version": "1.3.1",
+  "version": "1.4.0",
   "description": "Researchzy literature search, library and PDFs with source-grounded paper reading and research cards.",
   "author": {
     "name": "Researchzy"
@@ -9,7 +9,7 @@
   "interface": {
     "displayName": "Researchzy",
     "shortDescription": "Find papers, read PDFs and create research cards.",
-    "longDescription": "Search by DOI, arXiv, title or keywords; manage your library and download PDFs. Read papers with source anchors or create evidence-grounded research cards using bundled Nature Skills.",
+    "longDescription": "Search by DOI, arXiv, title or keywords; manage your library, download PDFs and add your PDFs to library papers. Read papers with source anchors or create evidence-grounded research cards using bundled Nature Skills.",
     "developerName": "Researchzy",
     "category": "Productivity",
     "capabilities": [],

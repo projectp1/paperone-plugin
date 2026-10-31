@@ -1,11 +1,11 @@
 ---
 name: researchzy-literature
-description: Search Researchzy by DOI, arXiv ID, title, or keywords; retrieve bibliographic metadata, browse personal or shared libraries, create personal collections, and get verified PDF metadata or downloads. Use for paper discovery and library operations, not for deep reading or research-card analysis.
+description: Search Researchzy by DOI, arXiv ID, title, or keywords; retrieve bibliographic metadata, browse personal or shared libraries, create personal collections, get verified PDF metadata or downloads, and add a local PDF to a library paper that has none. Use for paper discovery and library operations, not for deep reading or research-card analysis.
 ---
 
 # Researchzy Literature
 
-Use Researchzy's MCP tools for literature search, metadata, library access, and PDF retrieval. Follow their live schemas. If the tools are unavailable in this session, say so; when the host offers a way to connect Researchzy, point the user to it. Report only fields returned by the tools.
+Use Researchzy's MCP tools for literature search, metadata, library access, PDF retrieval, and adding PDFs to library papers. Follow their live schemas. If the tools are unavailable in this session, say so; when the host offers a way to connect Researchzy, point the user to it. Report only fields returned by the tools.
 
 ## Tool routing
 
@@ -18,6 +18,7 @@ Use Researchzy's MCP tools for literature search, metadata, library access, and 
 | Browse personal, collection, or shared papers | `list_library_papers` |
 | Add a paper to the library or a writable collection | `add_paper_to_library` |
 | Get current PDF metadata and a download URL | `get_pdf_download` |
+| Add a local PDF file to a library paper without one | `create_pdf_upload` |
 
 ## Search and metadata
 
@@ -44,6 +45,15 @@ Use Researchzy's MCP tools for literature search, metadata, library access, and 
 5. If the URL has expired or returns HTTP 403, call `get_pdf_download` once more and retry once. Report the actual error after a second failure.
 6. Verify HTTP success and that the downloaded content is a PDF. Compare `sizeBytes` and `fileHashSha256` when supplied. Receiving a URL alone is not a completed download.
 7. Return a link or attachment for the saved file. Keep bibliographic metadata distinct from PDF-file metadata, and do not invent absent fields.
+
+## Adding a PDF to a library paper
+
+1. Add a PDF only when the user asks to attach or upload one to a paper in their library. You need the file in the task workspace: one the user supplied, or one you downloaded for them. A paper the library does not hold yet is saved first with `add_paper_to_library`, which returns its `paperId`.
+2. Select the paper by its library `paperId` from `list_library_papers`, `get_paper` or `add_paper_to_library`. Only a paper with `hasReadablePdf: false` can get a PDF; Researchzy never replaces a paper's PDF, so do not try.
+3. Check that the file is a PDF. Call `create_pdf_upload` with `{paperId: ...}` and compare the file size with the returned `maxSizeBytes`.
+4. Send the file to `uploadUrl` before `expiresAt` with the returned `method` and `contentType`, without Researchzy authorization headers or cookies, for example `curl --fail-with-body -X PUT -H 'Content-Type: application/pdf' --data-binary @paper.pdf '<uploadUrl>'`. Send the bare file: a form or multipart upload such as `curl -F` is refused. Do not record `uploadUrl` in files or artifacts: it works without credentials until it expires.
+5. A successful PUT returns `hasReadablePdf: true` and `readerUrl`; give the user the link. If the link has expired (`RESOURCE_NOT_FOUND`), call `create_pdf_upload` once more and retry once. `OPERATION_NOT_ALLOWED` means the paper has a PDF by now: report it and do not retry. Report other failures with their `code` and `userMessage`.
+6. If the host cannot read local files or make HTTP requests, say so: the user can add the PDF in the paper's details in Researchzy.
 
 ## Deep reading and research cards
 
