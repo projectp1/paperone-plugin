@@ -2,7 +2,7 @@
 
 [简体中文](README.zh-CN.md)
 
-Researchzy for Codex: search scholarly papers, work with your library, retrieve PDFs, download full text through open access or publisher APIs, and create evidence-grounded research cards.
+Researchzy for Codex: search scholarly papers, work with your library, retrieve PDFs, download full text through open access or publisher APIs, read papers closely, create evidence-grounded research cards, and prepare manuscript statistics, data statements and reviewer responses.
 
 ## Capabilities
 
@@ -16,7 +16,11 @@ Researchzy for Codex: search scholarly papers, work with your library, retrieve 
 | Get PDF metadata and download URLs | `get_pdf_download` |
 | Add a PDF file to a library paper that has none | `create_pdf_upload` |
 | Download full text through open access or the user's own publisher API keys | `researchzy-download` |
+| Close reading of one paper | `researchzy-deep-read` |
 | Create an evidence-grounded research card | `researchzy-paper-card` |
+| Audit or draft a manuscript's statistical reporting | `researchzy-stats-review` |
+| Draft or audit Data and Code Availability statements | `researchzy-data-availability` |
+| Respond to reviewers: point-by-point responses, cover letters, revision packages | `researchzy-rebuttal` |
 
 ## Install in Codex
 
@@ -52,4 +56,4 @@ This repository owns the plugin package. The Researchzy backend owns the API, MC
 
 ## Licensing
 
-`researchzy-paper-card` retains the Apache-2.0 license and attribution of Nature Skills' `nature-paper-card`, and `researchzy-download` the MIT license of `nature-downloader`; see [third-party notices](plugins/paperone/THIRD_PARTY_NOTICES.md). Researchzy-owned files do not yet declare a separate open-source license.
+The skills adapted from Nature Skills retain their Apache-2.0 license and attribution, and `researchzy-download` the MIT license of `nature-downloader`; see [third-party notices](plugins/paperone/THIRD_PARTY_NOTICES.md). Researchzy-owned files do not yet declare a separate open-source license.

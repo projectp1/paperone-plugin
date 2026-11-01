@@ -1,76 +1,75 @@
-# `researchzy-paper-card` 技能
+# `researchzy-paper-card` Skill
 
-[English](README_EN.md)
+Adapted from `nature-paper-card` in [Nature Skills](https://github.com/Yuan1z0825/nature-skills); see the plugin's THIRD_PARTY_NOTICES.md.
 
-`researchzy-paper-card` 用于精读一篇科研论文，并生成有来源约束、可复核的 01–16 节 Paper Card；它强调研究问题、方法逻辑、实验—结论证据链、结论边界、批判性分析和可检验研究想法，而不是把摘要翻译成中文。
+`researchzy-paper-card` deeply reads one scientific paper and produces a source-grounded, reviewable Sections 01–16 Paper Card. It focuses on the research question, method logic, experiment-to-claim evidence, conclusion boundaries, critical analysis, and testable research ideas instead of translating the abstract.
 
-## 适合用它做什么
+## What To Use It For
 
-- 对单篇论文进行结构化精读，而不是只生成摘要。
-- 追踪核心结论对应的图、表、公式、实验和消融证据。
-- 区分作者陈述、外部事实、Agent 分析和研究假设。
-- 检查论文的结论边界、作者自述局限和未解决问题。
-- 从证据链出发提出可证伪、可执行的候选研究想法。
+- Deep-read one paper through a consistent structure rather than produce only a summary.
+- Trace central conclusions to figures, tables, equations, experiments, and ablations.
+- Separate author statements, external facts, Agent analysis, and research hypotheses.
+- Examine conclusion boundaries, author-stated limitations, and unresolved questions.
+- Derive falsifiable and actionable candidate research ideas from the evidence chain.
 
-## 典型请求
+## Typical Requests
 
-- “使用 `researchzy-paper-card` 精读这篇 PDF，生成完整 Paper Card。”
-- “分析这篇论文的方法模块、关键公式和实验—结论证据链。”
-- “这篇论文真正证明了什么、没有证明什么？”
-- “基于论文中的限制，提出几个可以验证的后续研究方向。”
+- "Use `researchzy-paper-card` to deep-read this PDF and generate a complete Paper Card."
+- "Analyze the method modules, essential equations, and experiment-to-claim evidence chain."
+- "What does this paper actually demonstrate, and what does it not demonstrate?"
+- "Propose testable follow-up directions based on the paper's limitations."
 
-## 你需要提供
+## What You Need To Provide
 
-- 一篇论文的 PDF、DOI、arXiv 页面、出版社文章、粘贴文本，或已有的 `nature-reader` source map。
-- 如有需要，说明输出语言、输出目录和希望重点审查的问题。
-- 若只有摘要或局部材料，Skill 仍可运行，但会明确标记无法判断的部分。
+- A paper PDF, DOI, arXiv page, publisher article, pasted text, or an existing `nature-reader` source map.
+- When relevant, the output language, output directory, and questions that need special attention.
+- The skill can work from an abstract or partial material, but it will explicitly mark sections that cannot be assessed.
 
-## 工作方式
+## Workflow
 
-1. 使用内置 `prepare_paper.py` 准备来源材料，不临时重写 PDF 提取脚本。
-2. 根据证据可靠性选择 `page-grounded`、`structure-grounded` 或 `source-limited` 模式。
-3. 按论文的论证结构选择方法、发现、资源、临床、材料或综述分析镜头。
-4. 先建立证据清单和 claim–evidence matrix，再生成固定的 01–16 节 Paper Card。
-5. 使用内置 `audit_paper_card.py` 检查结构、来源定位和证据约束。
+1. Run the bundled `prepare_paper.py` to prepare source material instead of writing a temporary PDF extraction script.
+2. Select `page-grounded`, `structure-grounded`, or `source-limited` mode according to evidence reliability.
+3. Select a methods, discovery, resource, clinical, materials, or review lens from the paper's argument structure.
+4. Build an evidence inventory and claim–evidence matrix before drafting the fixed Sections 01–16.
+5. Run the bundled `audit_paper_card.py` to check structure, locators, and evidence grounding.
 
-## 产出
+## Outputs
 
-- `paper-card.md`：固定 01–16 节的深度 Paper Card。
-- `source_bundle.json`：PDF 或 source map 的标准化来源包。
-- `audit-report.json`：结构、定位和证据约束审计结果。
-- 可选的 `rendered-pages/`：需要视觉核对时渲染的 PDF 页面。
+- `paper-card.md`: the fixed Sections 01–16 deep-reading Paper Card.
+- `source_bundle.json`: normalized source material from a PDF or source map.
+- `audit-report.json`: structure, locator, and evidence-grounding audit results.
+- Optional `rendered-pages/`: rendered PDF pages for visual inspection.
 
-## 运行和依赖
+## Runtime and Dependencies
 
-- 需要 Python 3。
-- PDF 处理优先使用 Skill 自带脚本和当前环境中可用的 PDF 库。
-- PDF 页码可靠时同时使用 PDF 页码和结构定位；页码提取失败时自动降级为结构定位，不伪造页码。
-- source map 中缺失或非法的页码会保留为未定位块并给出警告，不会自动归入 PDF 第 1 页。
-- 外部检索只用于文献背景核验、知识连接、书目信息确认或用户明确要求的新颖性检查。
+- Python 3 is required.
+- PDF processing uses the bundled scripts and PDF libraries available in the current environment.
+- When PDF page indices are reliable, the card uses both PDF-page and structural locators. If page extraction fails, it falls back to structural locators without inventing page numbers.
+- Missing or invalid source-map page locators remain explicitly unlocated with a warning; they are never assigned to PDF page 1.
+- External search is limited to field-history checks, knowledge connections, bibliographic verification, or an explicitly requested novelty check.
 
-## 使用教程
+## Tutorial
 
-完整的可复制教程见[中文教程](https://github.com/Yuan1z0825/nature-skills/blob/c4e4c99fbeaf0168cda090f8739e1508017a610e/docs/nature-paper-card-tutorial.md)，包括输入、触发方式、三种来源定位模式、输出文件和结果验收方法。
+See the complete [English tutorial](https://github.com/Yuan1z0825/nature-skills/blob/c4e4c99fbeaf0168cda090f8739e1508017a610e/docs/nature-paper-card-tutorial_EN.md) for copyable prompts, inputs, the three locator modes, output files, and acceptance checks.
 
-最小调用示例：
+Minimal invocation:
 
 ```text
-使用 researchzy-paper-card 精读这篇论文，生成中文 Paper Card。
-重点检查方法模块、关键实验、结论边界和可验证的后续研究想法。
+Use researchzy-paper-card to deep-read this paper and generate an English Paper Card.
+Focus on the method modules, decisive experiments, conclusion boundaries,
+and testable follow-up ideas.
 ```
 
-## 边界
+## Boundaries
 
-- 一次处理一篇论文，不负责批量文献监控。
-- 不生成全文双语翻译；需要全文阅读材料时使用 `nature-reader`。
-- 不生成正式同行评审报告；需要审稿人视角时使用 `nature-reviewer`。
-- 不把 Paper Card 改写成公众号文章，也不生成第 17、18 节。
-- 来源不足时明确写 `Not assessable`，不会补写不可见的实验或页码。
+- Process one paper at a time; do not perform batch literature monitoring.
+- Do not produce full-text bilingual translation.
+- Do not produce a formal peer-review report.
+- Do not turn the Paper Card into a public article or add Sections 17 and 18.
+- When source material is insufficient, write `Not assessable` rather than invent unseen experiments or page numbers.
 
-## 相关技能
+## Related Skills
 
-- `nature-reader`：生成全文双语 Markdown、图文对应和稳定 source map。
-- `nature-academic-search`：核验领域历史、外部知识连接或相关工作。
-- `nature-reviewer`：生成正式的审稿人式评审报告。
-- `nature-literature-pipeline`：批量发现、筛选和推送论文。
-- `nature-paper2ppt`：把论文内容转换成汇报幻灯片。
+- `researchzy-literature`: search Researchzy and retrieve the PDF Researchzy holds.
+- `researchzy-download`: get the lawful full text when Researchzy has no PDF.
+- `researchzy-deep-read`: a close-reading long-read of one paper instead of a fixed card.

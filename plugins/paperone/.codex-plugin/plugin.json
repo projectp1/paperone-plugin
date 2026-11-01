@@ -1,7 +1,7 @@
 {
   "name": "paperone",
   "version": "1.5.0",
-  "description": "Researchzy literature search, library and PDFs, lawful full-text downloads and research cards.",
+  "description": "Researchzy literature search, library and PDFs, lawful full-text downloads, close reading, research cards and manuscript revision support.",
   "author": {
     "name": "Researchzy"
   },
@@ -9,7 +9,7 @@
   "interface": {
     "displayName": "Researchzy",
     "shortDescription": "Find papers, download full text and create research cards.",
-    "longDescription": "Search by DOI, arXiv, title or keywords; manage your library, download PDFs and add your PDFs to library papers. Download full text Researchzy has no PDF for through open access or your own publisher API keys, and create evidence-grounded research cards.",
+    "longDescription": "Search by DOI, arXiv, title or keywords; manage your library, download PDFs and add your PDFs to library papers. Download full text Researchzy has no PDF for through open access or your own publisher API keys, read papers closely, create evidence-grounded research cards, and check a manuscript's statistics, data availability statements and responses to reviewers.",
     "developerName": "Researchzy",
     "category": "Productivity",
     "capabilities": [],

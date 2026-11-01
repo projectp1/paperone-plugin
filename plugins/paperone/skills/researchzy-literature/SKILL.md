@@ -55,10 +55,11 @@ Use Researchzy's MCP tools for literature search, metadata, library access, PDF 
 5. A successful PUT returns `hasReadablePdf: true` and `readerUrl`; give the user the link. If the link has expired (`RESOURCE_NOT_FOUND`), call `create_pdf_upload` once more and retry once. `OPERATION_NOT_ALLOWED` means the paper has a PDF by now: report it and do not retry. Report other failures with their `code` and `userMessage`.
 6. If the host cannot read local files or make HTTP requests, say so: the user can add the PDF in the paper's details in Researchzy.
 
-## Full-text downloads and research cards
+## Full-text downloads, close reading and research cards
 
 - Stop after search or metadata when that is all the user requested.
 - When Researchzy has no PDF for a paper the user wants the file of, continue with the bundled `researchzy-download` skill: it finds a lawful open-access copy or uses the user's own publisher API keys.
+- For close reading of one paper (how the authors got there, which design carries the result, the formulas worked through, how far the evidence reaches), continue with `researchzy-deep-read`.
 - For a structured Paper Card, claim-to-evidence analysis, limitations, or research ideas, continue with `researchzy-paper-card`.
 - These analysis requests allow retrieving the selected paper's available full text. Read [Researchzy source acquisition](references/researchzy-source.md), obtain and verify the PDF, then pass its local path and real metadata to the selected skill. Do not add the paper to the library unless requested.
 - If a local PDF is already available, use it directly.

@@ -15,7 +15,8 @@ ROOT = Path(__file__).resolve().parents[1]
 PACKAGE_NAME = "paperone-test"
 TEST_ORIGIN = "https://app.testp1.testdomain.stream"
 CLIENTS = {"private": "paperone-chatgpt-test", "submission-draft": "paperone-openai-draft-test"}
-SKILLS = {"researchzy-literature", "researchzy-download", "researchzy-paper-card"}
+SKILLS = {"researchzy-literature", "researchzy-download", "researchzy-deep-read", "researchzy-paper-card",
+          "researchzy-stats-review", "researchzy-data-availability", "researchzy-rebuttal"}
 SKIP_DIRECTORIES = {"__pycache__", "node_modules", ".venv", ".git", ".pytest_cache"}
 UNSAFE_NAMES = {".npmrc", ".pypirc", "credentials.json", "token.json", "tokens.json", "id_rsa", "id_ed25519"}
 

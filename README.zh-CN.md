@@ -2,7 +2,7 @@
 
 [English](README.md)
 
-Researchzy 的 Codex 插件：查找论文、管理文献库、获取 PDF，通过开放获取或出版商 API 下载全文，并制作研究卡片。
+Researchzy 的 Codex 插件：查找论文、管理文献库、获取 PDF，通过开放获取或出版商 API 下载全文，精读论文、制作研究卡片，并处理稿件的统计报告、数据声明和审稿回复。
 
 ## 功能
 
@@ -16,7 +16,11 @@ Researchzy 的 Codex 插件：查找论文、管理文献库、获取 PDF，通�
 | PDF metadata 与下载地址 | `get_pdf_download` |
 | 给还没有 PDF 的文献库论文上传 PDF | `create_pdf_upload` |
 | 通过开放获取或用户自己的出版商 API key 下载全文 | `researchzy-download` |
+| 单篇论文精读 | `researchzy-deep-read` |
 | 论文卡片、方法与证据分析 | `researchzy-paper-card` |
+| 审查或起草稿件的统计报告 | `researchzy-stats-review` |
+| 起草或审查 Data / Code Availability 声明 | `researchzy-data-availability` |
+| 回复审稿意见：逐点回复、返修信、修订稿件包 | `researchzy-rebuttal` |
 
 ## 在 Codex 中安装
 

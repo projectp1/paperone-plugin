@@ -12,15 +12,21 @@ DOI and arXiv lookup uses the backend's independent identifier index. The test e
 |---|---|---|
 | Search, metadata, library, or PDF retrieval | `researchzy-literature` | Real metadata or a verified local PDF |
 | Full text Researchzy has no PDF for | `researchzy-download` | Verified PDFs or full text from open access or the user's publisher API keys, and `manifest.json` |
+| Close reading: how the authors got there, load-bearing design, worked formulas, evidence boundary | `researchzy-deep-read` | A Markdown long-read |
 | Paper Card, evidence chain, methods, or limitations | `researchzy-paper-card` | Source-anchored `paper-card.md` and an audit report |
+| Statistical reporting of a manuscript | `researchzy-stats-review` | Issues by severity, ready-to-paste Statistical analysis text, and author questions |
+| Data and Code Availability statements | `researchzy-data-availability` | A ready-to-paste statement, repository and citation actions, and missing-information flags |
+| Responses to reviewers and revision packages | `researchzy-rebuttal` | A master tracker, one response per reviewer, a cover letter, and optional LaTeX files |
 
-For a Paper Card, Codex follows the [source acquisition rules](skills/researchzy-literature/references/researchzy-source.md), retrieves and verifies the PDF, then runs the requested local skill. Researchzy's backend does not execute these skills. Existing local PDFs can be used directly. Metadata alone is not enough to invent full-text claims or page references.
+For a close reading or a Paper Card, Codex follows the [source acquisition rules](skills/researchzy-literature/references/researchzy-source.md), retrieves and verifies the PDF, then runs the requested local skill. Researchzy's backend does not execute these skills. Existing local PDFs can be used directly. Metadata alone is not enough to invent full-text claims or page references.
 
 Example prompts:
 
 - `Use Researchzy to look up DOI 10.1051/0004-6361/202556799 and return metadata only.`
 - `Download the full text of 10.1371/journal.pone.0000308 and 10.1016/j.cell.2020.02.052.`
 - `Create a Paper Card for this local PDF and separate author claims from your analysis.`
+- `Read arXiv 1706.03762 closely: why did the authors design it this way, and how far does the evidence reach?`
+- `Here are the editor's letter and the reviewers' comments; draft the point-by-point responses.`
 
 Python 3.10+ is recommended for bundled scripts. PDF preparation uses PyMuPDF from `requirements.txt`; scanned PDFs also require OCR support. The downloader requires Node.js 22+ and verifies PDFs with pdfplumber or pypdf. Pinned upstream sources, licenses, and Researchzy modifications are recorded in [third-party notices](THIRD_PARTY_NOTICES.md).
 

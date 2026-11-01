@@ -10,7 +10,7 @@ Build a Paper Card that helps a researcher reconstruct the paper's reasoning and
 - Explain why a method component exists and what evidence supports its contribution.
 - State what a result does not establish.
 - Leave unsupported fields incomplete rather than filling the template speculatively.
-- Keep recurring terminology consistent using the Terminology Ledger (`static/core/terminology-ledger.md`).
+- Keep recurring terminology consistent using the Terminology Ledger (`shared/core/terminology-ledger.md`).
 
 ## Scope
 

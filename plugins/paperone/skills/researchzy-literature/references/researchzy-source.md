@@ -1,7 +1,7 @@
-# Researchzy source acquisition for the Paper Card
+# Researchzy source acquisition for paper analysis
 
-Use this reference before making a Paper Card from a DOI, arXiv identifier,
-title, `corpusId`, or library `paperId`. Resolve paths relative to the loaded
+Use this reference before reading a paper closely or making a Paper Card from a
+DOI, arXiv identifier, title, `corpusId`, or library `paperId`. Resolve paths relative to the loaded
 skill directory. This reference only retrieves the source; return
 to the requesting skill afterward. Do not invoke skills recursively.
 
@@ -43,12 +43,14 @@ to the requesting skill afterward. Do not invoke skills recursively.
    authorization failure, point to the host's Researchzy connection flow when one
    exists; never request a password, token or Cookie.
 5. Hand back the verified local path plus bibliographic metadata and source
-   provenance. Do not store signed URLs or credentials in card artifacts.
+   provenance. Do not store signed URLs or credentials in reading or card artifacts.
    Record which document version was actually available; an arXiv `vN` request
    does not guarantee Researchzy supplies that PDF version.
 
 ## Continue the requested analysis
 
+- `researchzy-deep-read`: read the whole local PDF, including appendix and
+  supplementary material when available, before writing the long-read.
 - `researchzy-paper-card`: prepare the local PDF or existing source map with its
   bundled `prepare_paper.py`; preserve its locator modes and run its auditor.
 - Researchzy is optional for local inputs. When disconnected, or when a public
