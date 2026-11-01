@@ -9,7 +9,7 @@
   "interface": {
     "displayName": "Researchzy",
     "shortDescription": "Find papers, download full text and create research cards.",
-    "longDescription": "Search by DOI, arXiv, title or keywords; manage your library, download PDFs and add your PDFs to library papers. Download full text Researchzy has no PDF for through open access or your own publisher API keys, and create evidence-grounded research cards using bundled Nature Skills.",
+    "longDescription": "Search by DOI, arXiv, title or keywords; manage your library, download PDFs and add your PDFs to library papers. Download full text Researchzy has no PDF for through open access or your own publisher API keys, and create evidence-grounded research cards.",
     "developerName": "Researchzy",
     "category": "Productivity",
     "capabilities": [],

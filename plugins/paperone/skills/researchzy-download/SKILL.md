@@ -126,5 +126,5 @@ Tell the user which sources were tried (from `attempts`) and what is missing:
 
 ## Continue with other skills
 
-- For a Paper Card, evidence chain or research ideas, pass the verified local PDF and its metadata to `nature-paper-card`.
+- For a Paper Card, evidence chain or research ideas, pass the verified local PDF and its metadata to `researchzy-paper-card`.
 - For search, library work or adding the file to a Researchzy library paper, use `researchzy-literature`.

@@ -14,7 +14,7 @@ from pathlib import Path
 
 sys.dont_write_bytecode = True
 SCRIPT_PATH = Path(__file__).parents[1] / "scripts" / "prepare_paper.py"
-SPEC = importlib.util.spec_from_file_location("nature_paper_card_prepare", SCRIPT_PATH)
+SPEC = importlib.util.spec_from_file_location("researchzy_paper_card_prepare", SCRIPT_PATH)
 assert SPEC and SPEC.loader
 PREPARE = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(PREPARE)

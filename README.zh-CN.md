@@ -2,7 +2,7 @@
 
 [English](README.md)
 
-Researchzy 的 Codex 插件：查找论文、管理文献库、获取 PDF，通过开放获取或出版商 API 下载全文，并使用 Nature Skills 制作研究卡片。
+Researchzy 的 Codex 插件：查找论文、管理文献库、获取 PDF，通过开放获取或出版商 API 下载全文，并制作研究卡片。
 
 ## 功能
 
@@ -16,7 +16,7 @@ Researchzy 的 Codex 插件：查找论文、管理文献库、获取 PDF，通�
 | PDF metadata 与下载地址 | `get_pdf_download` |
 | 给还没有 PDF 的文献库论文上传 PDF | `create_pdf_upload` |
 | 通过开放获取或用户自己的出版商 API key 下载全文 | `researchzy-download` |
-| 论文卡片、方法与证据分析 | `nature-paper-card` |
+| 论文卡片、方法与证据分析 | `researchzy-paper-card` |
 
 ## 在 Codex 中安装
 
@@ -38,4 +38,4 @@ codex plugin add paperone@projectp1
 
 更多说明：[插件使用](plugins/paperone/README.md)、[工具说明](plugins/paperone/docs/tools.md)。
 
-本仓库维护插件包；API、MCP 服务、OAuth 和检索索引由 Researchzy 后端维护。Nature Skills 的许可证与来源见[第三方声明](plugins/paperone/THIRD_PARTY_NOTICES.md)。
+本仓库维护插件包；API、MCP 服务、OAuth 和检索索引由 Researchzy 后端维护。改编自 Nature Skills 的 skill 的许可证与来源见[第三方声明](plugins/paperone/THIRD_PARTY_NOTICES.md)。

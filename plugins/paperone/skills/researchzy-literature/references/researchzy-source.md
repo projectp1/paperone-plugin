@@ -1,9 +1,9 @@
-# Researchzy source acquisition for Nature Skills
+# Researchzy source acquisition for the Paper Card
 
 Use this reference before making a Paper Card from a DOI, arXiv identifier,
 title, `corpusId`, or library `paperId`. Resolve paths relative to the loaded
 skill directory. This reference only retrieves the source; return
-to the requesting Nature skill afterward. Do not invoke skills recursively.
+to the requesting skill afterward. Do not invoke skills recursively.
 
 ## Choose the source
 
@@ -49,7 +49,7 @@ to the requesting Nature skill afterward. Do not invoke skills recursively.
 
 ## Continue the requested analysis
 
-- `nature-paper-card`: prepare the local PDF or existing source map with its
+- `researchzy-paper-card`: prepare the local PDF or existing source map with its
   bundled `prepare_paper.py`; preserve its locator modes and run its auditor.
 - Researchzy is optional for local inputs. When disconnected, or when a public
   corpus search has no record/PDF, explain the limitation and use

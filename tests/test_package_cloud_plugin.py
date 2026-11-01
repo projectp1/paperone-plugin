@@ -29,7 +29,7 @@ class CloudPluginPackageTests(unittest.TestCase):
                     "interface": {"developerName": "Researchzy", "longDescription": "Find and read papers.",
                                   "defaultPrompt": self.default_prompt}}
         (self.source / ".codex-plugin" / "plugin.json").write_text(json.dumps(metadata), encoding="utf-8")
-        for name in ("researchzy-literature", "researchzy-download", "nature-paper-card", "nature-shared"):
+        for name in ("researchzy-literature", "researchzy-download", "researchzy-paper-card"):
             directory = self.source / "skills" / name
             directory.mkdir(parents=True)
             (directory / "SKILL.md").write_text(f"---\nname: {name}\ndescription: Test workflow.\n---\nUse this workflow.\n", encoding="utf-8")
@@ -53,7 +53,7 @@ class CloudPluginPackageTests(unittest.TestCase):
         with zipfile.ZipFile(self.build()) as archive:
             self.assertEqual(archive.read("paperone-test/skills/researchzy-download/scripts/read.py"), payload)
             self.assertEqual(archive.read("paperone-test/skills/researchzy-download/references/source.json"), reference.read_bytes())
-            self.assertEqual(sum(n.endswith("/SKILL.md") for n in archive.namelist()), 4)
+            self.assertEqual(sum(n.endswith("/SKILL.md") for n in archive.namelist()), 3)
             self.assertIn("paperone-test/licenses/upstream.txt", archive.namelist())
             self.assertIn("paperone-test/requirements.txt", archive.namelist())
 
@@ -131,7 +131,7 @@ class CloudPluginPackageTests(unittest.TestCase):
             self.assertNotIn("mcpServers", compatibility)
             self.assertNotIn("paperone-test/mcp.json", archive.namelist())
             self.assertNotIn("paperone-test/.mcp.json", archive.namelist())
-            self.assertEqual(sum(n.endswith("/SKILL.md") for n in archive.namelist()), 4)
+            self.assertEqual(sum(n.endswith("/SKILL.md") for n in archive.namelist()), 3)
 
     def test_app_binding_is_private_only_and_requires_nonempty_id(self):
         for target, app_id in (("submission-draft", "fixture-registered-app"), ("private", ""), ("private", " ")):

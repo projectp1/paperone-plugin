@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PACKAGE_NAME = "paperone-test"
 TEST_ORIGIN = "https://app.testp1.testdomain.stream"
 CLIENTS = {"private": "paperone-chatgpt-test", "submission-draft": "paperone-openai-draft-test"}
-SKILLS = {"researchzy-literature", "researchzy-download", "nature-paper-card", "nature-shared"}
+SKILLS = {"researchzy-literature", "researchzy-download", "researchzy-paper-card"}
 SKIP_DIRECTORIES = {"__pycache__", "node_modules", ".venv", ".git", ".pytest_cache"}
 UNSAFE_NAMES = {".npmrc", ".pypirc", "credentials.json", "token.json", "tokens.json", "id_rsa", "id_ed25519"}
 
@@ -46,7 +46,7 @@ def _resources(source: Path) -> dict[str, bytes]:
     result: dict[str, bytes] = {}
     skill_root = source / "skills"
     if not skill_root.is_dir() or {p.name for p in skill_root.iterdir() if p.is_dir()} != SKILLS:
-        raise ValueError("source must contain the four expected Researchzy skills")
+        raise ValueError("source must contain exactly the expected Researchzy skills")
     for directory in (skill_root, source / "licenses"):
         _check_resource(directory, source)
         for path in sorted(directory.rglob("*")):

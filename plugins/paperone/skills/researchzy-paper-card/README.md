@@ -1,8 +1,8 @@
-# `nature-paper-card` 技能
+# `researchzy-paper-card` 技能
 
 [English](README_EN.md)
 
-`nature-paper-card` 用于精读一篇科研论文，并生成有来源约束、可复核的 01–16 节 Paper Card；它强调研究问题、方法逻辑、实验—结论证据链、结论边界、批判性分析和可检验研究想法，而不是把摘要翻译成中文。
+`researchzy-paper-card` 用于精读一篇科研论文，并生成有来源约束、可复核的 01–16 节 Paper Card；它强调研究问题、方法逻辑、实验—结论证据链、结论边界、批判性分析和可检验研究想法，而不是把摘要翻译成中文。
 
 ## 适合用它做什么
 
@@ -14,7 +14,7 @@
 
 ## 典型请求
 
-- “使用 `nature-paper-card` 精读这篇 PDF，生成完整 Paper Card。”
+- “使用 `researchzy-paper-card` 精读这篇 PDF，生成完整 Paper Card。”
 - “分析这篇论文的方法模块、关键公式和实验—结论证据链。”
 - “这篇论文真正证明了什么、没有证明什么？”
 - “基于论文中的限制，提出几个可以验证的后续研究方向。”
@@ -55,7 +55,7 @@
 最小调用示例：
 
 ```text
-使用 nature-paper-card 精读这篇论文，生成中文 Paper Card。
+使用 researchzy-paper-card 精读这篇论文，生成中文 Paper Card。
 重点检查方法模块、关键实验、结论边界和可验证的后续研究想法。
 ```
 

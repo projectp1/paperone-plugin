@@ -1,31 +1,38 @@
 # Third-party components
 
-## Nature Skills
+## researchzy-paper-card
 
-This plugin includes `nature-paper-card` and `nature-shared`
-from [Yuan1z0825/nature-skills](https://github.com/Yuan1z0825/nature-skills),
-commit `c4e4c99fbeaf0168cda090f8739e1508017a610e` (2026-09-10).
+`skills/researchzy-paper-card` is derived from `nature-paper-card` in
+[Yuan1z0825/nature-skills](https://github.com/Yuan1z0825/nature-skills),
+commit `c4e4c99fbeaf0168cda090f8739e1508017a610e` (2026-09-10), together with
+`nature-shared/core/terminology-ledger.md` from the same commit.
 
-These directories retain their upstream references, templates, scripts, tests
-and attribution. They are distributed under the
+The skill retains its upstream references, templates, scripts, tests and
+attribution. It is distributed under the
 [Apache License 2.0](licenses/nature-skills-Apache-2.0.txt). Upstream did not
 contain a NOTICE file at this revision. Nature Skills is a third-party project;
 bundling it does not imply endorsement by its authors or the journal Nature.
 
-Researchzy modifications (2026-09-13):
+Researchzy modifications:
 
-- `skills/nature-paper-card/SKILL.md`: optional Researchzy retrieval, a limited-source
-  classification fallback, and optional references to workflows outside this bundle.
+- 2026-09-13: `SKILL.md` gained optional Researchzy retrieval, a limited-source
+  classification fallback, and optional references to workflows outside this
+  bundle. Researchzy's own source-acquisition reference resides in
+  `skills/researchzy-literature/references/researchzy-source.md`.
+- 2026-09-18: README tutorial links point to the pinned upstream repository
+  because those tutorials are not bundled.
+- 2026-11-01 (version 1.5.0): renamed from `nature-paper-card` to
+  `researchzy-paper-card` (`SKILL.md`, `manifest.yaml`, `agents/openai.yaml`,
+  `evals/evals.json`, the READMEs, the docstring of `scripts/prepare_paper.py`
+  and a module name in `tests/test_prepare_paper.py`). The Terminology Ledger,
+  the only `nature-shared` file the skill loads, is bundled unchanged as
+  `static/core/terminology-ledger.md`; `manifest.yaml` and
+  `static/core/principles.md` point to it, and `nature-shared` is no longer
+  bundled. `nature-reader` is no longer bundled either: `SKILL.md` lists it among
+  the workflows that are not bundled and points to `researchzy-download` for full
+  text.
 
-Researchzy's own source-acquisition reference resides in
-`skills/researchzy-literature/references/researchzy-source.md`. Shared upstream
-content and the bundled Python scripts are otherwise unchanged.
-
-Packaging changes (2026-09-18): paper-card README tutorial links now point to the pinned upstream repository because those tutorials are not bundled.
-
-Removal (2026-11-01, version 1.5.0): `nature-reader` is no longer bundled.
-`skills/nature-paper-card/SKILL.md` lists it among the workflows that are not
-bundled and points to `researchzy-download` for full text.
+The upstream content and the bundled Python scripts are otherwise unchanged.
 
 ## researchzy-download
 

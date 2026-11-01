@@ -1,4 +1,4 @@
-name: nature-paper-card
+name: researchzy-paper-card
 version: 1.2.0
 description: >
   Declarative routing for a source-grounded Sections 01-16 Paper Card. The paper_type
@@ -6,7 +6,7 @@ description: >
   stable across disciplines.
 
 always_load:
-  - ../nature-shared/core/terminology-ledger.md
+  - static/core/terminology-ledger.md
   - static/core/principles.md
   - static/core/workflow.md
   - static/core/output-contract.md

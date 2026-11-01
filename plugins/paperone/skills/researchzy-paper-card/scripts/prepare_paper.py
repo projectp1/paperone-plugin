@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Prepare a stable source bundle for the nature-paper-card workflow."""
+"""Prepare a stable source bundle for the researchzy-paper-card workflow."""
 
 from __future__ import annotations
 

@@ -16,7 +16,7 @@ Researchzy for Codex: search scholarly papers, work with your library, retrieve 
 | Get PDF metadata and download URLs | `get_pdf_download` |
 | Add a PDF file to a library paper that has none | `create_pdf_upload` |
 | Download full text through open access or the user's own publisher API keys | `researchzy-download` |
-| Create an evidence-grounded research card | `nature-paper-card` |
+| Create an evidence-grounded research card | `researchzy-paper-card` |
 
 ## Install in Codex
 
@@ -52,4 +52,4 @@ This repository owns the plugin package. The Researchzy backend owns the API, MC
 
 ## Licensing
 
-Bundled Nature Skills retain their Apache-2.0 license and attribution, and `researchzy-download` retains the MIT license of `nature-downloader`; see [third-party notices](plugins/paperone/THIRD_PARTY_NOTICES.md). Researchzy-owned files do not yet declare a separate open-source license.
+`researchzy-paper-card` retains the Apache-2.0 license and attribution of Nature Skills' `nature-paper-card`, and `researchzy-download` the MIT license of `nature-downloader`; see [third-party notices](plugins/paperone/THIRD_PARTY_NOTICES.md). Researchzy-owned files do not yet declare a separate open-source license.

@@ -59,6 +59,6 @@ Use Researchzy's MCP tools for literature search, metadata, library access, PDF 
 
 - Stop after search or metadata when that is all the user requested.
 - When Researchzy has no PDF for a paper the user wants the file of, continue with the bundled `researchzy-download` skill: it finds a lawful open-access copy or uses the user's own publisher API keys.
-- For a structured Paper Card, claim-to-evidence analysis, limitations, or research ideas, continue with `nature-paper-card`.
+- For a structured Paper Card, claim-to-evidence analysis, limitations, or research ideas, continue with `researchzy-paper-card`.
 - These analysis requests allow retrieving the selected paper's available full text. Read [Researchzy source acquisition](references/researchzy-source.md), obtain and verify the PDF, then pass its local path and real metadata to the selected skill. Do not add the paper to the library unless requested.
 - If a local PDF is already available, use it directly.

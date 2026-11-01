@@ -12,10 +12,9 @@ DOI and arXiv lookup uses the backend's independent identifier index. The test e
 |---|---|---|
 | Search, metadata, library, or PDF retrieval | `researchzy-literature` | Real metadata or a verified local PDF |
 | Full text Researchzy has no PDF for | `researchzy-download` | Verified PDFs or full text from open access or the user's publisher API keys, and `manifest.json` |
-| Paper Card, evidence chain, methods, or limitations | `nature-paper-card` | Source-anchored `paper-card.md` and an audit report |
-| Shared Nature workflow dependency | `nature-shared` | Loaded on demand; no standalone user entry point |
+| Paper Card, evidence chain, methods, or limitations | `researchzy-paper-card` | Source-anchored `paper-card.md` and an audit report |
 
-For Nature workflows, Codex follows the [source acquisition rules](skills/researchzy-literature/references/researchzy-source.md), retrieves and verifies the PDF, then runs the requested local skill. Researchzy's backend does not execute these skills. Existing local PDFs can be used directly. Metadata alone is not enough to invent full-text claims or page references.
+For a Paper Card, Codex follows the [source acquisition rules](skills/researchzy-literature/references/researchzy-source.md), retrieves and verifies the PDF, then runs the requested local skill. Researchzy's backend does not execute these skills. Existing local PDFs can be used directly. Metadata alone is not enough to invent full-text claims or page references.
 
 Example prompts:
 

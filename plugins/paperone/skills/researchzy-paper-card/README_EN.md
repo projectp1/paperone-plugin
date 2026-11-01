@@ -1,8 +1,8 @@
-# `nature-paper-card` Skill
+# `researchzy-paper-card` Skill
 
 [中文说明](README.md)
 
-`nature-paper-card` deeply reads one scientific paper and produces a source-grounded, reviewable Sections 01–16 Paper Card. It focuses on the research question, method logic, experiment-to-claim evidence, conclusion boundaries, critical analysis, and testable research ideas instead of translating the abstract.
+`researchzy-paper-card` deeply reads one scientific paper and produces a source-grounded, reviewable Sections 01–16 Paper Card. It focuses on the research question, method logic, experiment-to-claim evidence, conclusion boundaries, critical analysis, and testable research ideas instead of translating the abstract.
 
 ## What To Use It For
 
@@ -14,7 +14,7 @@
 
 ## Typical Requests
 
-- "Use `nature-paper-card` to deep-read this PDF and generate a complete Paper Card."
+- "Use `researchzy-paper-card` to deep-read this PDF and generate a complete Paper Card."
 - "Analyze the method modules, essential equations, and experiment-to-claim evidence chain."
 - "What does this paper actually demonstrate, and what does it not demonstrate?"
 - "Propose testable follow-up directions based on the paper's limitations."
@@ -55,7 +55,7 @@ See the complete [English tutorial](https://github.com/Yuan1z0825/nature-skills/
 Minimal invocation:
 
 ```text
-Use nature-paper-card to deep-read this paper and generate an English Paper Card.
+Use researchzy-paper-card to deep-read this paper and generate an English Paper Card.
 Focus on the method modules, decisive experiments, conclusion boundaries,
 and testable follow-up ideas.
 ```

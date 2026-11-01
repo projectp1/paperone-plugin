@@ -1,12 +1,14 @@
 ---
-name: nature-paper-card
+name: researchzy-paper-card
 description: Build a source-grounded deep-reading Paper Card for one scientific paper, preprint, PDF, DOI, arXiv page, publisher article, or pasted paper text. Use when the user asks for a Paper Card, deep-reading literature card, single-paper deep analysis, module-by-module analysis, experiment-to-claim evidence chain, conclusion-boundary audit, critical analysis, knowledge connections, or candidate research ideas. Produce the fixed Sections 01-16 covering bibliographic position, research question, background route, pain point, core insight, method and module logic, essential formulas, experiment-to-claim evidence, conclusion boundaries, author-stated limitations, critical analysis, learned knowledge, knowledge connections, and testable research ideas. Do not use for full-paper bilingual translation, formal peer-review reports, batch literature monitoring, academic-English collection, comprehension quizzes, or public-article writing.
 ---
 
-# Nature Paper Card - Router
+# Researchzy Paper Card - Router
 
-> Researchzy adaptation (2026-09-13): added optional Researchzy source acquisition
-> and made references to unbundled Nature workflows optional. See THIRD_PARTY_NOTICES.md.
+> Researchzy adaptation of Nature Skills' `nature-paper-card` (2026-09-13, renamed
+> 2026-11-01): added optional Researchzy source acquisition, made references to
+> unbundled Nature workflows optional, and bundled the Terminology Ledger. See
+> THIRD_PARTY_NOTICES.md.
 
 Use this skill to turn one paper into an evidence-grounded research card, not a translated abstract, generic summary, reviewer report, or publication article.
 
