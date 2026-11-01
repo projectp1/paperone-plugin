@@ -2,7 +2,7 @@
 
 [简体中文](README.zh-CN.md)
 
-Researchzy for Codex: search scholarly papers, work with your library, retrieve PDFs, read papers with source anchors, and create evidence-grounded research cards.
+Researchzy for Codex: search scholarly papers, work with your library, retrieve PDFs, download full text through open access or publisher APIs, and create evidence-grounded research cards.
 
 ## Capabilities
 
@@ -15,7 +15,7 @@ Researchzy for Codex: search scholarly papers, work with your library, retrieve 
 | Save a paper to the library or a writable collection | `add_paper_to_library` |
 | Get PDF metadata and download URLs | `get_pdf_download` |
 | Add a PDF file to a library paper that has none | `create_pdf_upload` |
-| Build a source-grounded bilingual reader | `nature-reader` |
+| Download full text through open access or the user's own publisher API keys | `researchzy-download` |
 | Create an evidence-grounded research card | `nature-paper-card` |
 
 ## Install in Codex
@@ -35,10 +35,10 @@ The bundled MCP configuration targets `https://app.researchzy.com/mcp`. Producti
 
 - Find DOI `10.1051/0004-6361/202556799` and show its metadata and PDF availability.
 - Find arXiv paper `2508.10985`.
-- Read this paper closely and create a Chinese-English reader with source anchors.
+- Download the full text of these DOIs: open access or my publisher API keys for the ones Researchzy has no PDF for.
 - Create a Paper Card for this PDF and distinguish author claims from analysis.
 
-See the [plugin guide](plugins/paperone/README.md) and [tool reference](plugins/paperone/docs/tools.md). PDF preparation scripts require Python 3.10+ and the optional dependencies in the plugin's `requirements.txt`.
+See the [plugin guide](plugins/paperone/README.md) and [tool reference](plugins/paperone/docs/tools.md). PDF preparation scripts require Python 3.10+ and the optional dependencies in the plugin's `requirements.txt`; the downloader requires Node.js 22+.
 
 ## Repository layout
 
@@ -52,4 +52,4 @@ This repository owns the plugin package. The Researchzy backend owns the API, MC
 
 ## Licensing
 
-Bundled Nature Skills retain their Apache-2.0 license and attribution; see [third-party notices](plugins/paperone/THIRD_PARTY_NOTICES.md). Researchzy-owned files do not yet declare a separate open-source license.
+Bundled Nature Skills retain their Apache-2.0 license and attribution, and `researchzy-download` retains the MIT license of `nature-downloader`; see [third-party notices](plugins/paperone/THIRD_PARTY_NOTICES.md). Researchzy-owned files do not yet declare a separate open-source license.

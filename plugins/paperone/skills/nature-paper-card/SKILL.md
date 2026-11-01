@@ -165,12 +165,13 @@ If the auditor itself cannot run, state that failure and manually apply only its
 
 ## Relationship to adjacent skills
 
-- Use `nature-reader` for full-text bilingual reading artifacts, extraction, and stable source maps.
+- Use `researchzy-download` to obtain the paper's lawful full text when no PDF is
+  available yet.
 - Use connected Researchzy search for related literature metadata. Field history
   and novelty still require checking the actual cited sources; search metadata
   alone is not independent verification of a claim.
-- Other upstream workflows such as `nature-reviewer`, `nature-literature-pipeline`
-  and `nature-paper2ppt` are not bundled. Use them only if separately installed
-  and explicitly relevant to the user's requested output.
+- Other upstream workflows such as `nature-reader`, `nature-reviewer`,
+  `nature-literature-pipeline` and `nature-paper2ppt` are not bundled. Use them
+  only if separately installed and explicitly relevant to the user's requested output.
 
 Do not silently switch the requested Paper Card into any of these outputs.

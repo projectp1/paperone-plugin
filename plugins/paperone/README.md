@@ -1,6 +1,6 @@
 # Researchzy Literature Plugin
 
-Version 1.4.0 provides eight focused MCP tools: `search_papers`, `get_paper`, `list_collections`, `create_collection`, `list_library_papers`, `add_paper_to_library`, `get_pdf_download`, and `create_pdf_upload`. It also bundles local workflows for close reading and research cards. It does not wrap AI Search, AI Survey, or automated literature reviews.
+Version 1.4.0 provides eight focused MCP tools: `search_papers`, `get_paper`, `list_collections`, `create_collection`, `list_library_papers`, `add_paper_to_library`, `get_pdf_download`, and `create_pdf_upload`. It also bundles local workflows for downloading full text and for research cards. It does not wrap AI Search, AI Survey, or automated literature reviews.
 
 Search supports titles, keywords, DOI, and arXiv identifiers. Metadata uses `hasReadablePdf`, and a paper whose PDF Researchzy can show has `readerUrl`, its page in the Researchzy reader. The PDF tool returns a short-lived URL, its expiry, and any available file hash and size; the host downloads and verifies the file according to the [Researchzy Literature skill](skills/researchzy-literature/SKILL.md). The upload tool returns a short-lived URL that the host PUTs a local PDF file to, for a library paper that has no PDF yet.
 
@@ -11,19 +11,19 @@ DOI and arXiv lookup uses the backend's independent identifier index. The test e
 | User goal | Skill | Result |
 |---|---|---|
 | Search, metadata, library, or PDF retrieval | `researchzy-literature` | Real metadata or a verified local PDF |
-| Close reading, bilingual reading, or translation | `nature-reader` | `paper.md`, `source_map.json`, figure/equation assets, and reading notes |
+| Full text Researchzy has no PDF for | `researchzy-download` | Verified PDFs or full text from open access or the user's publisher API keys, and `manifest.json` |
 | Paper Card, evidence chain, methods, or limitations | `nature-paper-card` | Source-anchored `paper-card.md` and an audit report |
 | Shared Nature workflow dependency | `nature-shared` | Loaded on demand; no standalone user entry point |
 
-For Nature workflows, Codex follows the [source acquisition rules](skills/researchzy-literature/references/researchzy-source.md), retrieves and verifies the PDF, then runs the requested local skill. Researchzy's backend does not execute these skills. Existing local PDFs or reader artifacts can be used directly, and a Paper Card does not require a translation first. Metadata alone is not enough to invent full-text claims or page references.
+For Nature workflows, Codex follows the [source acquisition rules](skills/researchzy-literature/references/researchzy-source.md), retrieves and verifies the PDF, then runs the requested local skill. Researchzy's backend does not execute these skills. Existing local PDFs can be used directly. Metadata alone is not enough to invent full-text claims or page references.
 
 Example prompts:
 
 - `Use Researchzy to look up DOI 10.1051/0004-6361/202556799 and return metadata only.`
-- `Read https://doi.org/10.1051/0004-6361/202556799 closely and preserve figure and evidence anchors.`
+- `Download the full text of 10.1371/journal.pone.0000308 and 10.1016/j.cell.2020.02.052.`
 - `Create a Paper Card for this local PDF and separate author claims from your analysis.`
 
-Python 3.10+ is recommended for bundled scripts. PDF preparation uses PyMuPDF from `requirements.txt`; scanned PDFs also require OCR support. Pinned upstream sources, licenses, and Researchzy modifications are recorded in [third-party notices](THIRD_PARTY_NOTICES.md).
+Python 3.10+ is recommended for bundled scripts. PDF preparation uses PyMuPDF from `requirements.txt`; scanned PDFs also require OCR support. The downloader requires Node.js 22+ and verifies PDFs with pdfplumber or pypdf. Pinned upstream sources, licenses, and Researchzy modifications are recorded in [third-party notices](THIRD_PARTY_NOTICES.md).
 
 ## Connection
 

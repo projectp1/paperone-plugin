@@ -1,6 +1,8 @@
 # Third-party components
 
-This plugin includes `nature-reader`, `nature-paper-card` and `nature-shared`
+## Nature Skills
+
+This plugin includes `nature-paper-card` and `nature-shared`
 from [Yuan1z0825/nature-skills](https://github.com/Yuan1z0825/nature-skills),
 commit `c4e4c99fbeaf0168cda090f8739e1508017a610e` (2026-09-10).
 
@@ -12,15 +14,6 @@ bundling it does not imply endorsement by its authors or the journal Nature.
 
 Researchzy modifications (2026-09-13):
 
-- `skills/nature-reader/SKILL.md`: optional Researchzy retrieval and reuse boundary.
-- `skills/nature-reader/static/fragments/source/doi-arxiv.md`: Researchzy-first
-  DOI/arXiv retrieval, returning to upstream source handling when appropriate.
-- `skills/nature-reader/static/core/output-contract.md`: resolve the bundled
-  validator from the installed skill directory; handle optional host PDF tooling.
-- `skills/nature-reader/references/equation-handling.md`: use the same installed
-  validator path as the output contract.
-- `skills/nature-reader/static/fragments/source/{pdf-text,scanned-pdf}.md`:
-  make the host PDF skill optional, consistent with the output contract.
 - `skills/nature-paper-card/SKILL.md`: optional Researchzy retrieval, a limited-source
   classification fallback, and optional references to workflows outside this bundle.
 
@@ -29,3 +22,36 @@ Researchzy's own source-acquisition reference resides in
 content and the bundled Python scripts are otherwise unchanged.
 
 Packaging changes (2026-09-18): paper-card README tutorial links now point to the pinned upstream repository because those tutorials are not bundled.
+
+Removal (2026-11-01, version 1.5.0): `nature-reader` is no longer bundled.
+`skills/nature-paper-card/SKILL.md` lists it among the workflows that are not
+bundled and points to `researchzy-download` for full text.
+
+## researchzy-download
+
+`skills/researchzy-download` is derived from `nature-downloader` in
+[Yuan1z0825/nature-skills](https://github.com/Yuan1z0825/nature-skills),
+commit `c1a8e7bbcf86d82a268dc4a9980d36082b31fb2f` (2026-10-31; the skill last
+changed in `3981da9877237d36a21705f314b2b66e41ca59e5`, 2026-10-20). That skill is
+distributed under its own [MIT License](licenses/nature-downloader-MIT.txt),
+Copyright (c) 2026 baihe26, which the skill directory keeps as `LICENSE`.
+
+Researchzy modifications (2026-11-01):
+
+- Renamed to `researchzy-download`, and every file is English only.
+- Kept only the open-access and publisher-API routes. Removed the CNKI route and
+  every Chinese-language source, the Web of Science, institutional-browser,
+  Chrome DevTools and supporting-information routes, the automatic verification
+  module (`anti-bot.mjs`), the school configuration (`configure_school.py`,
+  `src/`, `data/school*`), the browser helper scripts, the examples, the upstream
+  READMEs, banner and development notes.
+- `scripts/batch_download.mjs`: rewritten for those routes (DOI list, exact title,
+  known URL); a title shared by several Crossref works is reported as
+  `metadata_ambiguous` with its candidates instead of taking the first match.
+- `scripts/lib/open-access.mjs`: PMC copies come from NCBI's PMC Article Datasets
+  on AWS, because the PMC OA web service (`oa.fcgi`) no longer answers.
+- `scripts/lib/routing.mjs`, `status-codes.mjs`, `provider-utils.mjs`,
+  `publisher-providers.mjs`, `metadata.mjs`: reduced to the remaining routes and
+  statuses; English-only content checks.
+- `SKILL.md`, `manifest.yaml`, `agents/openai.yaml` and the tests rewritten
+  accordingly; Researchzy's own PDFs are tried first.

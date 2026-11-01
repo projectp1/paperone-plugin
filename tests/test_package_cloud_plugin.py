@@ -29,7 +29,7 @@ class CloudPluginPackageTests(unittest.TestCase):
                     "interface": {"developerName": "Researchzy", "longDescription": "Find and read papers.",
                                   "defaultPrompt": self.default_prompt}}
         (self.source / ".codex-plugin" / "plugin.json").write_text(json.dumps(metadata), encoding="utf-8")
-        for name in ("researchzy-literature", "nature-reader", "nature-paper-card", "nature-shared"):
+        for name in ("researchzy-literature", "researchzy-download", "nature-paper-card", "nature-shared"):
             directory = self.source / "skills" / name
             directory.mkdir(parents=True)
             (directory / "SKILL.md").write_text(f"---\nname: {name}\ndescription: Test workflow.\n---\nUse this workflow.\n", encoding="utf-8")
@@ -43,7 +43,7 @@ class CloudPluginPackageTests(unittest.TestCase):
         return PACKAGER.build_archive(self.source, self.root / f"{target}.zip", target, version)
 
     def test_cloud_package_preserves_nested_skill_resources(self):
-        script = self.source / "skills" / "nature-reader" / "scripts" / "read.py"
+        script = self.source / "skills" / "researchzy-download" / "scripts" / "read.py"
         script.parent.mkdir()
         payload = b"print('preserve exact bytes')\r\n"
         script.write_bytes(payload)
@@ -51,8 +51,8 @@ class CloudPluginPackageTests(unittest.TestCase):
         reference.parent.mkdir()
         reference.write_bytes(b'{"source":"example"}')
         with zipfile.ZipFile(self.build()) as archive:
-            self.assertEqual(archive.read("paperone-test/skills/nature-reader/scripts/read.py"), payload)
-            self.assertEqual(archive.read("paperone-test/skills/nature-reader/references/source.json"), reference.read_bytes())
+            self.assertEqual(archive.read("paperone-test/skills/researchzy-download/scripts/read.py"), payload)
+            self.assertEqual(archive.read("paperone-test/skills/researchzy-download/references/source.json"), reference.read_bytes())
             self.assertEqual(sum(n.endswith("/SKILL.md") for n in archive.namelist()), 4)
             self.assertIn("paperone-test/licenses/upstream.txt", archive.namelist())
             self.assertIn("paperone-test/requirements.txt", archive.namelist())
@@ -90,14 +90,14 @@ class CloudPluginPackageTests(unittest.TestCase):
             self.assertFalse({"skills", "mcpServers", "apps", "interface"} & manifest.keys())
 
     def test_archive_rejects_symlinks_and_unsafe_resources(self):
-        secret = self.source / "skills" / "nature-reader" / ".env"
+        secret = self.source / "skills" / "researchzy-download" / ".env"
         secret.write_text("SECRET=do-not-upload", encoding="utf-8")
         with self.assertRaisesRegex(ValueError, "unsafe|credential|secret"):
             self.build()
         secret.unlink()
         outside = self.root / "outside.txt"
         outside.write_text("outside", encoding="utf-8")
-        link = self.source / "skills" / "nature-reader" / "linked.txt"
+        link = self.source / "skills" / "researchzy-download" / "linked.txt"
         try:
             os.symlink(outside, link)
         except OSError:
@@ -111,7 +111,7 @@ class CloudPluginPackageTests(unittest.TestCase):
             self.build()
 
     def test_generated_caches_are_excluded(self):
-        cache = self.source / "skills" / "nature-reader" / "__pycache__"
+        cache = self.source / "skills" / "researchzy-download" / "__pycache__"
         cache.mkdir()
         (cache / "read.pyc").write_bytes(b"cache")
         with zipfile.ZipFile(self.build()) as archive:
