@@ -1,14 +1,11 @@
 ---
 name: researchzy-deep-read
 description: >-
-  Read one supplied paper closely enough to reconstruct how its authors actually got there, rather
-  than restating what the abstract claims. Use for close reading, explaining a paper thoroughly,
-  why the authors designed it this way, how a formula is derived, and deep single-paper
-  comprehension before building on, reviewing, presenting, or citing that paper. Recovers the real starting point and the bet the
-  authors placed, separates load-bearing design from decoration, grounds each key formula in a
-  worked micro-example with concrete numbers, and checks how far the evidence actually reaches,
-  including where the authors are confident and where the paper does not report something. Delivers
-  a structured Markdown long-read by default. Not a summary, not a translation, not a peer review.
+  Close reading of one paper as a Markdown long-read: how the authors actually got there, which
+  design choices carry the result, the key formulas worked through with concrete numbers, and how
+  far the evidence reaches, including what the paper does not report. Use to understand a paper
+  before building on, presenting, reviewing or citing it. Not a summary, a translation or a peer
+  review.
 ---
 
 # Researchzy Deep Read

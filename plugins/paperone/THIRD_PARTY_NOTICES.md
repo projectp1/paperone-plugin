@@ -35,8 +35,8 @@ bundled; each skill's `README.md` is upstream's `README_EN.md`.
   `manifest.yaml`, `agents/openai.yaml`, `evals/evals.json`, the READMEs, the
   docstring of `scripts/prepare_paper.py` and a module name in
   `tests/test_prepare_paper.py`); `manifest.yaml` and `static/core/principles.md`
-  point to the bundled Terminology Ledger, and `README.md` no longer points to
-  upstream skills that are not bundled. `nature-reader` is no longer bundled:
+  point to the bundled Terminology Ledger, `SKILL.md` has a shorter description,
+  and `README.md` no longer points to upstream skills that are not bundled. `nature-reader` is no longer bundled:
   `SKILL.md` lists it among the workflows that are not bundled and points to
   `researchzy-download` for full text.
 
@@ -50,7 +50,7 @@ The four skills added on 2026-11-01 (version 1.5.0):
   other skills and to the `nature-shared` directory point to the Researchzy skills
   and to the skill's `shared/` directory.
 - `researchzy-deep-read`: `SKILL.md` gained a Researchzy source-acquisition
-  section; its Boundaries and Output discipline no longer name other skills or a
+  section and a shorter description; its Boundaries and Output discipline no longer name other skills or a
   language; one sentence of `references/evidence-boundary.md` likewise.
 - `researchzy-stats-review`: `SKILL.md` accepts author notes in any language.
 - `researchzy-data-availability`: `static/core/chinese-mode.md` and
